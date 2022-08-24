@@ -11,10 +11,10 @@ html {
 }
 
 .container {
-  max-width: 144rem;
+  /* max-width: 144rem; */
 }
 
-/* PRICING */
+/* ///////////////////////// PRICING SECTIONN ///////////////////// */
 
 .pricing {
   background: #072d49;
@@ -46,12 +46,27 @@ html {
   align-items: center;
   margin-top: 7.2rem;
   margin-bottom: 4.8rem;
+  transform: translateX(5rem);
 }
 .prekidac {
   width: 8rem;
   height: 3.8rem;
   background: #10b0e7;
   border-radius: 64px;
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.prekidac2 {
+  width: 8rem;
+  height: 3.8rem;
+  background: #99a8b4;
+  border-radius: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
 }
 
 .dis {
@@ -65,15 +80,15 @@ html {
 
 .cart1 {
   width: 33.6rem;
-  max-height: 58.4rem;
+  height: 58.4rem;
   display: flex;
   background: rgba(14, 14, 33, 0.24);
+  border-radius: 0.4rem;
 }
 
 .centarC {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -104,7 +119,9 @@ html {
   line-height: 2rem;
   text-decoration-line: line-through;
   color: #e76a10;
+  opacity: 0;
 }
+
 .price {
   font-weight: 600;
   font-size: 3.6rem;
@@ -137,6 +154,9 @@ html {
   color: white;
   font-weight: 600;
   margin-bottom: 3.2rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .check {
@@ -159,14 +179,59 @@ html {
   display: flex;
 }
 .cartFoo {
-  margin-top: 7.4rem;
+  margin-bottom: 3.2rem;
   color: #99a8b4;
   font-size: 1.2rem;
   margin-bottom: 3.2rem;
   text-align: center;
+  margin-top: 7.4rem;
 }
 
 .deskPrice {
   display: flex;
   gap: 3.2rem;
+}
+.top {
+  margin-top: 3.25rem;
+}
+.top2 {
+  margin-top: 2.45rem;
+}
+.midHeight {
+  height: 60.02rem;
+}
+.midBcolor {
+  background-color: white;
+}
+.midColor {
+  color: #27597d;
+  font-weight: 600;
+}
+.midBtn {
+  background: #e76a10;
+  box-shadow: 0px 4px 8px rgba(101, 119, 133, 0.24);
+  border-radius: 4px;
+  border: none;
+}
+.bold800 {
+  font-weight: 800;
+}
+.month {
+  font-weight: 600;
+}
+.transformY {
+  transform: translateY(-0.3rem);
+}
+.circle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 0.4rem;
+}
+.marLeft {
+  margin-left: 0.4rem;
+}
+.hidden {
+  display: none;
 }
