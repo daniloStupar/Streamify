@@ -11,7 +11,9 @@ html {
 }
 
 .container {
-  /* max-width: 144rem; */
+  max-width: 144rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /* ///////////////////////// PRICING SECTIONN ///////////////////// */
@@ -234,4 +236,123 @@ html {
 }
 .hidden {
   display: none;
+}
+
+/* ////////////////////HEADR////////////////////////// */
+
+.header {
+  background-image: url("Image.png");
+  width: 144rem;
+  height: 102.4rem;
+}
+
+.headTitle {
+  text-align: center;
+  font-size: 4rem;
+  padding-top: 4.8rem;
+  font-weight: 800;
+  color: #072d49;
+}
+
+.headertext {
+  font-size: 7.2rem;
+  font-weight: 800;
+  line-height: 8.8rem;
+  margin-left: 14.6rem;
+  margin-top: 22.3rem;
+  color: #072d49;
+}
+
+.headtext {
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-left: 14.6rem;
+  margin-top: 2.4rem;
+  color: #072d49;
+}
+
+.headerBtn {
+  background-color: #e76a10;
+  padding: 1.6rem 4rem;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-left: 14.6rem;
+  border: none;
+  color: white;
+  margin-top: 4rem;
+  box-shadow: 0px 4px 8px rgba(101, 119, 133, 0.24);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* /////////////////// CUPON //////////////////////// */
+.cupon {
+  width: 93.6rem;
+  max-height: 73.4rem;
+  border-radius: 0.4rem;
+  background-color: white;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gift {
+  padding-top: 5.6rem;
+  margin-bottom: 4rem;
+}
+.x {
+  position: absolute;
+  top: 2.4rem;
+  right: 2.4rem;
+  font-size: 2.6rem;
+  color: #99a8b4;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cuponText {
+  display: inline-block;
+  color: #072d49;
+  font-weight: 600;
+  font-size: 3.6rem;
+}
+
+.dif {
+  display: inline-block;
+  color: #e76a10;
+  font-weight: 800;
+  font-size: 3.6rem;
+}
+
+.enterMail {
+  color: #657785;
+  font-size: 2.2rem;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+.mailCupon {
+  width: 50.6rem;
+  height: 5.6rem;
+  border: 0.1rem solid #99a8b4;
+  border-radius: 4px;
+  color: #99a8b4;
+  margin-bottom: 7rem;
+}
+
+.cuponBtn {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  width: 29.9rem;
+  height: 6.1rem;
+  color: #f9f9f9;
+  background: #e76a10;
+  box-shadow: 0px 4px 8px rgba(101, 119, 133, 0.24);
+  border-radius: 4px;
+  border: none;
+  margin-bottom: 5.6rem;
+  cursor: pointer;
 }
