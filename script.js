@@ -68,3 +68,11 @@ prekidacOn.addEventListener("click", function () {
     el.style.opacity = "0";
   });
 });
+
+/////////////////// MODAL //////////////////////////////////
+const closeModal = document.querySelector(".x");
+const modal = document.querySelector(".modal");
+
+closeModal.addEventListener("click", function () {
+  modal.style.display = "none";
+});

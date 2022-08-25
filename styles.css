@@ -21,6 +21,7 @@ html {
 .pricing {
   background: #072d49;
   height: 120rem;
+  width: 100%;
 }
 
 .naslov {
@@ -286,13 +287,12 @@ html {
 }
 
 /* /////////////////// CUPON //////////////////////// */
-.cupon {
+
+.modal {
   width: 93.6rem;
   max-height: 73.4rem;
   border-radius: 0.4rem;
   background-color: white;
-}
-.modal {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -355,4 +355,70 @@ html {
   border: none;
   margin-bottom: 5.6rem;
   cursor: pointer;
+}
+
+/* //////////////////// COMMENTS ////////////////// */
+
+.comtitle {
+  color: #072d49;
+  font-weight: 800;
+  font-size: 6.4rem;
+  line-height: 7.8rem;
+  max-width: 37.3rem;
+  height: 7.8rem;
+  margin-top: 13.6rem;
+  margin-bottom: 8rem;
+}
+
+.comment {
+  width: 82.4rem;
+  height: 23.5rem;
+  display: flex;
+  padding: 40px 32px 32px;
+  gap: 32px;
+  border-bottom: 4px solid #10b0e7;
+}
+
+.slikaCom {
+  width: 8.8rem;
+  height: 8.8rem;
+  border-radius: 50%;
+  background-color: #072d49;
+}
+.comText {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+  width: 62.4rem;
+  height: 16.3rem;
+  position: relative;
+}
+.comName {
+  width: 15.2rem;
+  height: 2.9rem;
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+  color: #072d49;
+}
+.comMail {
+  height: 2rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: #99a8b4;
+}
+.comDate {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 17px;
+  color: #99a8b4;
+  font-size: 1.4rem;
+}
+.comContent {
+  width: 62.4rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: #072d49;
 }
