@@ -1,0 +1,8 @@
+@media (max-witdh: 1100px) {
+  .header {
+    width: 100%;
+  }
+  .pricing {
+    width: 100%;
+  }
+}

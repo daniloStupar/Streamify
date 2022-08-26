@@ -379,11 +379,10 @@ html {
   border-bottom: 4px solid #10b0e7;
 }
 
-.slikaCom {
+.slikaCom img {
   width: 8.8rem;
   height: 8.8rem;
   border-radius: 50%;
-  background-color: #072d49;
 }
 .comText {
   display: flex;

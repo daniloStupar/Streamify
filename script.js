@@ -76,3 +76,74 @@ const modal = document.querySelector(".modal");
 closeModal.addEventListener("click", function () {
   modal.style.display = "none";
 });
+
+// ///////////////////////////// COMMENTS ////////////////////////////////////////////////////
+
+// let comments = [];
+// const fetchComments = function () {
+//   fetch("https://mockend.com/Infomedia-bl/fake-api/comments")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       comments = data;
+//     });
+// };
+// function displayComments(comments) {
+//   commentsCon.innerHTML = "";
+//   console.log(comments);
+//   let html = "";
+//   for (const comment1 of comments) {
+//     html = `
+//     <div class="comment">
+//     <div class="slikaCom">${comments.avatarUrl}</div>
+//     <div class="comText">
+//       <div class="comName">
+//         ${comments.name}
+//         <div class="comMail">${comments.email}</div>
+//       </div>
+//       <div class="comDate">${comments.postedAt}</div>
+//       <div class="comContent">
+//        ${comments.comment}
+//       </div>
+//     </div>
+//   </div>
+//     `;
+//   }
+
+//   commentsCon.innerHTML = html;
+// }
+// displayComments(comments);
+
+///////////////////////////
+let comments;
+const commentsCon = document.querySelector(".commentsCon");
+
+const showComments = function () {
+  comments.forEach(function (comment) {
+    let commentHtml = `
+    <div class="comments centarC">
+    <div class="comment">
+    <div class="slikaCom"><img src="${comment.avatarUrl}"/></div>
+    <div class="comText">
+      <div class="comName">
+        ${comment.name}
+        <div class="comMail">${comment.email}</div>
+      </div>
+      <div class="comDate">${comment.postedAt}</div>
+      <div class="comContent">
+       ${comment.comment}
+      </div>
+    </div>
+    </div>
+    </div>`;
+    commentsCon.insertAdjacentHTML("beforeend", commentHtml);
+  });
+};
+
+const fetchComments = async function () {
+  const res = await fetch("https://mockend.com/Infomedia-bl/fake-api/comments");
+  const data = await res.json();
+  comments = data;
+  console.log(comments);
+  showComments();
+};
+fetchComments();
