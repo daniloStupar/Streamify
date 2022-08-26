@@ -70,80 +70,55 @@ prekidacOn.addEventListener("click", function () {
 });
 
 /////////////////// MODAL //////////////////////////////////
-const closeModal = document.querySelector(".x");
+const btnCloseModal = document.querySelector(".x");
 const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
 
-closeModal.addEventListener("click", function () {
-  modal.style.display = "none";
-});
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
 
-// ///////////////////////////// COMMENTS ////////////////////////////////////////////////////
+btnCloseModal.addEventListener("click", closeModal);
 
-// let comments = [];
-// const fetchComments = function () {
-//   fetch("https://mockend.com/Infomedia-bl/fake-api/comments")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       comments = data;
-//     });
-// };
-// function displayComments(comments) {
-//   commentsCon.innerHTML = "";
-//   console.log(comments);
-//   let html = "";
-//   for (const comment1 of comments) {
-//     html = `
-//     <div class="comment">
-//     <div class="slikaCom">${comments.avatarUrl}</div>
-//     <div class="comText">
-//       <div class="comName">
-//         ${comments.name}
-//         <div class="comMail">${comments.email}</div>
-//       </div>
-//       <div class="comDate">${comments.postedAt}</div>
-//       <div class="comContent">
-//        ${comments.comment}
-//       </div>
-//     </div>
-//   </div>
-//     `;
-//   }
-
-//   commentsCon.innerHTML = html;
-// }
-// displayComments(comments);
-
-///////////////////////////
-let comments;
+/////////////////////////// COMMENTS ////////////////////////////
+const loadMore = document.querySelector(".showMoreCom");
 const commentsCon = document.querySelector(".commentsCon");
 
-const showComments = function () {
-  comments.forEach(function (comment) {
+let i, currentComments;
+const show5comments = function (data) {
+  for (i = 0; i < 5; i++) {
+    currentComments = data;
     let commentHtml = `
     <div class="comments centarC">
     <div class="comment">
-    <div class="slikaCom"><img src="${comment.avatarUrl}"/></div>
+    <div class="slikaCom"><img src="${data[i].avatarUrl}"/></div>
     <div class="comText">
       <div class="comName">
-        ${comment.name}
-        <div class="comMail">${comment.email}</div>
+        ${data[i].name}
+        <div class="comMail">${data[i].email}</div>
       </div>
-      <div class="comDate">${comment.postedAt}</div>
+      <div class="comDate">${data[i].postedAt}</div>
       <div class="comContent">
-       ${comment.comment}
+       ${data[i].comment}
       </div>
     </div>
     </div>
-    </div>`;
+    </div>
+          `;
     commentsCon.insertAdjacentHTML("beforeend", commentHtml);
-  });
+  }
 };
-
 const fetchComments = async function () {
   const res = await fetch("https://mockend.com/Infomedia-bl/fake-api/comments");
   const data = await res.json();
-  comments = data;
-  console.log(comments);
-  showComments();
+  show5comments(data);
 };
 fetchComments();
+
+loadMore.addEventListener("click", (e) => {
+  for (let i = currentComments; i < currentComments + 5; i++)
+    currentComments += 5;
+  console.log("currentComments");
+  show5comments();
+});
