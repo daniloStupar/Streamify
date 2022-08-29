@@ -46,6 +46,8 @@ prekidacOff.addEventListener("click", function () {
   famPrice.innerHTML = `${famYear}€`;
   coPrice.innerHTML = `${coupleYear}€`;
 
+  console.log(indPrice.innerHTML)
+
   oldPrice.forEach((el) => {
     el.style.opacity = "1";
   });
@@ -85,10 +87,15 @@ btnCloseModal.addEventListener("click", closeModal);
 const loadMore = document.querySelector(".showMoreCom");
 const commentsCon = document.querySelector(".commentsCon");
 
-let i, currentComments;
+
+let data
+let i
+let currentComments=0;
+
 const show5comments = function (data) {
-  for (i = 0; i < 5; i++) {
-    currentComments = data;
+  currentComments= currentComments+5;
+  for (i = 0; i < currentComments; i++) {
+    
     let commentHtml = `
     <div class="comments centarC">
     <div class="comment">
@@ -108,20 +115,26 @@ const show5comments = function (data) {
           `;
     commentsCon.insertAdjacentHTML("beforeend", commentHtml);
   }
+  
 };
 const fetchComments = async function () {
   const res = await fetch("https://mockend.com/Infomedia-bl/fake-api/comments");
-  const data = await res.json();
+  data = await res.json();
   show5comments(data);
 };
 fetchComments();
 
-loadMore.addEventListener("click", (e) => {
-  for (let i = currentComments; i < currentComments + 5; i++)
-    currentComments += 5;
-  console.log("currentComments");
-  show5comments();
-});
+loadMore.addEventListener("click",() =>show5comments(data));
+
+
+
+
+// loadMore.addEventListener("click", (e) => {
+//   for (let i = currentComments; i < currentComments + 5; i++)
+//     currentComments += 5;
+//   console.log("currentComments");
+//   show5comments();
+// });
 
 ////////////////////////////////// VALIDATION ///////////////////////
 let inputs = document.querySelectorAll("input");
