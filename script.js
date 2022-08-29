@@ -122,3 +122,131 @@ loadMore.addEventListener("click", (e) => {
   console.log("currentComments");
   show5comments();
 });
+
+////////////////////////////////// VALIDATION ///////////////////////
+let inputs = document.querySelectorAll("input");
+let errors = {
+  name: [],
+  address: [],
+  email: [],
+  cardNumber: [],
+  cvc: [],
+  expDate: [],
+  coupon: [],
+};
+inputs.forEach((element) => {
+  element.addEventListener("change", (e) => {
+    let currentInput = e.target;
+    let inputValeu = currentInput.value;
+    let inputName = currentInput.getAttribute("name");
+    if (inputValeu.length >= 0) {
+      errors[inputName] = [];
+      switch (inputName) {
+        case "name":
+          let validation = inputValeu.trim();
+          validation = validation.split(" ");
+          console.log(validation);
+          if (validation.length < 2) {
+            errors[inputName].push("Please enter a valid name!");
+          }
+          break;
+
+        case "address":
+          let validationAddress = inputValeu.trim();
+          validationAddress = validationAddress.split(" ");
+
+          if (validationAddress.length < 2) {
+            errors[inputName].push("Please enter a valid address!");
+          }
+          console.log(validationAddress);
+          break;
+
+        case "email":
+          if (!validateEmail(inputValeu)) {
+            errors[inputName].push("Please enter a valid email!");
+          }
+          break;
+
+        case "cardNumber":
+          if (!validateCardNum(inputValeu)) {
+            errors[inputName].push("Please enter a valid card number!");
+          }
+          break;
+
+        case "cvc":
+          if (!validateCVC(inputValeu)) {
+            errors[inputName].push("Please enter a valid CVC!");
+          }
+          break;
+
+        case "expDate":
+          if (!validateCVC(inputValeu)) {
+            errors[inputName].push("Please enter a valid date!");
+          }
+          break;
+
+        case "coupon":
+          if (!validateCoupon(inputValeu)) {
+            errors[inputName].push("Please enter a valid date!");
+          }
+          break;
+      }
+    } else {
+      errors[inputName] = [];
+    }
+
+    populateErrors();
+  });
+});
+const populateErrors = () => {
+  for (let elem of document.querySelectorAll("ul")) {
+    elem.remove();
+  }
+  for (let key of Object.keys(errors)) {
+    let input = document.querySelector(`input[name="${key}"]`);
+    let parentElement = input.parentElement;
+    let errorsElement = document.createElement("ul");
+    parentElement.appendChild(errorsElement);
+
+    errors[key].forEach((error) => {
+      let li = document.createElement("li");
+      li.innerText = error;
+      errorsElement.appendChild(li);
+    });
+  }
+};
+
+const validateEmail = (email) => {
+  if (
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email
+    )
+  ) {
+    return true;
+  }
+  return false;
+};
+const validateCardNum = (cardNumber) => {
+  if (
+    /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/.test(
+      cardNumber
+    )
+  ) {
+    return true;
+  }
+  return false;
+};
+
+const validateCVC = (cvc) => {
+  if (/^[0-9]{3,4}$/.test(cvc)) {
+    return true;
+  }
+  return false;
+};
+
+const validateExpDate = (expDate) => {
+  if (/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/.test(expDate)) {
+    return true;
+  }
+  return false;
+};
