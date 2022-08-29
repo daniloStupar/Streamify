@@ -250,3 +250,11 @@ const validateExpDate = (expDate) => {
   }
   return false;
 };
+
+///////////////////////// WIDGET ///////////////////////////
+const closeWidget = document.querySelector(".xWidg");
+const streamersBox = document.querySelector(".streamersBox");
+
+closeWidget.addEventListener("click", function () {
+  streamersBox.style.display = "none";
+});
