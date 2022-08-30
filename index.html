@@ -45,13 +45,18 @@
         your first purchase
       </div>
       <p class="enterMail">Enter your email address below to get started</p>
-      <!-- <input
-        type="text"
-        id="email"
-        name="email"
-        placeholder="Email addres"
-        class="mailCupon"
-      /> -->
+      <div class="inputPos">
+      <input
+      type="emailCoupon"
+      id="emailCoupon"
+      name="emailCoupon"
+      placeholder="Email address"
+      class="input-fields-cou"
+      />
+      <span class="material-symbols-outlined iconCoupon">
+        mail
+        </span>
+      </div>
       <button class="cuponBtn">Get discount now</button>
     </div>
     <div class="container">
@@ -66,6 +71,7 @@
       <div class="commentsCon centarC">
         <div class="comtitle">Comments</div>
       </div>
+      <p class="noComment">No more comments to load...</p>
       <button class="showMoreCom">Show more</button>
       <!-- ///////////////////////////////////////////////////////////// PRICING /////////////////////////////////////////////////// -->
       <div class="pricing centarC">
@@ -89,7 +95,7 @@
             <div class="price indPrice"></div>
             <div class="des">/year after <br />offer period</div>
             <div class="acc">1 account</div>
-            <button class="choose centarC"><a href=#sectionForm class="chooseText">CHOOSE NOW</a></button>
+            <button class="choose centarC"><a href=#sectionForm class="chooseText choose1">CHOOSE NOW</a></button>
             <div>
               <div class="check">
                 <div class="centarA">
@@ -119,7 +125,7 @@
             <div class="price midColor famPr"></div>
             <div class="des">/year after <br />offer period</div>
             <div class="acc midColor">UP TO 7 ACCOUNTS</div>
-            <button class="choose centarC midBtn"><a href=#sectionForm class="chooseText" id="paddMid">CHOOSE NOW</a></button>
+            <button class="choose centarC midBtn"><a href=#sectionForm class="chooseText choose2" id="paddMid">CHOOSE NOW</a></button>
             <div>
               <div class="check midColor">
                 <div class="centarA">
@@ -164,7 +170,7 @@
             <div class="price coPr"></div>
             <div class="des">/year after <br />offer period</div>
             <div class="acc">2 accounts</div>
-            <button class="choose centarC"><a href=#sectionForm class="chooseText ">CHOOSE NOW</a></button>
+            <button class="choose centarC"><a href=#sectionForm class="chooseText choose3">CHOOSE NOW</a></button>
             <div>
               <div class="check">
                 <div class="centarA">
@@ -299,9 +305,8 @@
             <div class="horizontal-line"></div>
             <div class="orderForm">
               <p class="packet">
-                <span class="inputInfo"
-                  ><span class="uppercase">Family</span> Monthly</span
-                >
+                <span class=" paketTip">Family</span>
+                <span class="inputInfo paketVrijeme"> Monthly</span>
                 Membership Plan
               </p>
               <p class="packet-price">9.99&#x20AC;</p>

@@ -22,15 +22,9 @@ let indYearReg = individualMonth * 12;
 let famYearReg = familyMonth * 12;
 let coupleYearReg = coupleMonth * 12;
 
-let individualYear = individualMonth * 12 - 0.2 * (individualMonth * 12);
-individualYear = individualYear.toFixed(2);
-
-let famYear = familyMonth * 12 - 0.2 * (familyMonth * 12);
-famYear = famYear.toFixed(2);
-
-let coupleYear = coupleMonth * 12 - 0.2 * (coupleMonth * 12);
-coupleYear = coupleYear.toFixed(2);
-console.log(coupleYearReg);
+let individualYear = (individualMonth * 12 - 0.2 * (individualMonth * 12)).toFixed(2);
+let famYear = (familyMonth * 12 - 0.2 * (familyMonth * 12)).toFixed(2);
+let coupleYear = (coupleMonth * 12 - 0.2 * (coupleMonth * 12)).toFixed(2);;
 
 indPrice.innerHTML = `${individualMonth}€`;
 famPrice.innerHTML = `${familyMonth}€`;
@@ -88,6 +82,7 @@ btnCloseModal.addEventListener("click", closeModal);
 
 const loadMore = document.querySelector(".showMoreCom");
 const commentsCon = document.querySelector(".commentsCon");
+const noMoreComments=document.querySelector(".noComment")
 
 let data;
 let i;
@@ -115,6 +110,10 @@ const show5comments = function (data) {
           `;
     commentsCon.insertAdjacentHTML("beforeend", commentHtml);
   }
+  if(currentComments>=100){
+    noMoreComments.style.opacity="1";
+    loadMore.style.background="#657785";
+  }
 };
 const fetchComments = async function () {
   const res = await fetch("https://mockend.com/Infomedia-bl/fake-api/comments");
@@ -129,6 +128,7 @@ loadMore.addEventListener("click", () => show5comments(data));
 
 let inputs = document.querySelectorAll("input");
 let errors = {
+  emailCoupon:[],
   name: [],
   address: [],
   email: [],
@@ -169,6 +169,12 @@ inputs.forEach((element) => {
             errors[inputName].push("Please enter a valid email!");
           }
           break;
+
+          case "emailCoupon":
+            if (!validateEmail(inputValeu)) {
+              errors[inputName].push("Please enter a valid email!");
+            }
+            break; 
 
         case "cardNumber":
           if (!validateCardNum(inputValeu)) {
@@ -260,7 +266,6 @@ const closeWidget = document.querySelector(".widgX");
 const streamersBox = document.querySelector(".streamersBox");
 const streamersList = document.querySelector(".streamersList");
 const openStreamerBox = document.querySelector(".widget");
-console.log(openStreamerBox);
 
 openStreamerBox.addEventListener("click", function () {
   streamersBox.style.display = "block";
@@ -309,8 +314,29 @@ const fetchStreamers = async function () {
   const res = await fetch("https://mockend.com/Infomedia-bl/fake-api/users");
   data2 = await res.json();
   showStreamers(data2);
-  console.log(data2);
 };
 fetchStreamers();
 
 ///////////////////// ORDER FORM ///////////////////////////////////
+
+const monthlyIndividual=document.querySelector(".choose1");
+const monthlyFamily=document.querySelector(".choose2");
+const monthlyCouple=document.querySelector(".chose3")
+const paketTip=document.querySelector(".paketTip");
+const paketVrijeme=document.querySelector(".paketVrijeme")
+
+monthlyIndividual.addEventListener(".click",function(){
+
+})
+
+// let individualMonth = 4.99;
+// let familyMonth = 9.99;
+// let coupleMonth = 6.99;
+
+// let indYearReg = individualMonth * 12;
+// let famYearReg = familyMonth * 12;
+// let coupleYearReg = coupleMonth * 12;
+
+// let individualYear = (individualMonth * 12 - 0.2 * (individualMonth * 12)).toFixed(2);
+// let famYear = (familyMonth * 12 - 0.2 * (familyMonth * 12)).toFixed(2);
+// let coupleYear = (coupleMonth * 12 - 0.2 * (coupleMonth * 12)).toFixed(2);;
