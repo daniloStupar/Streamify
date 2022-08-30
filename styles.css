@@ -265,7 +265,7 @@ button {
 .header {
   background-image: url("Image.png");
   width: 100%;
-  height: 102.4rem;
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -475,8 +475,8 @@ button {
   border: none;
   color: white;
   margin-top: 3.2rem;
-  float: right;
-  margin-right: 29%;
+  margin-right: auto;
+  margin-left: auto;
   cursor: pointer;
 }
 
@@ -650,8 +650,8 @@ ul li {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
-  /* display: none; */
+  z-index: 15;
+  display: none;
 }
 
 .widgTitle {
@@ -668,6 +668,8 @@ ul li {
   right: 3.72%;
   position: absolute;
   cursor: pointer;
+  width: 3rem;
+  height: 2.5rem;
 }
 
 .streamersList {
@@ -690,6 +692,7 @@ ul li {
   position: absolute;
   top: 12.1rem;
   left: 5.6rem;
+  margin-right: 2rem;
 }
 
 .streamer {
@@ -700,5 +703,141 @@ ul li {
   gap: 8px;
   width: 272px;
   height: 216px;
-  border: yellow 2px solid;
+  position: relative;
+}
+
+.streamerImg {
+  width: 72px;
+  height: 72px;
+  border: 2px solid #1ad838;
+  border-radius: 64px;
+
+  position: relative;
+}
+
+.streamerImg img {
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.streamerName {
+  width: 152px;
+  height: 29px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: #f9f9f9;
+  text-align: center;
+}
+
+.streamerEmail {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #657785;
+}
+
+.streamerAction {
+  font-size: 16px;
+  line-height: 20px;
+  color: #f9f9f9;
+}
+
+.status {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 155px;
+  top: 72px;
+  border-radius: 50%;
+  z-index: 1;
+  background: #1ad838;
+}
+
+::-webkit-scrollbar {
+  border: 1px solid #10b0e7;
+  transform: rotate(90deg);
+  width: 0.3rem;
+  position: absolute;
+  left: 4.4rem;
+}
+
+::-webkit-scrollbar-thumb {
+  position: absolute;
+  width: 5px;
+  height: 24px;
+  left: 24px;
+  top: 114px;
+  background: #e76a10;
+  transform: rotate(-180deg);
+}
+
+.widget {
+  position: fixed;
+  right: 5%;
+  top: 85%;
+  cursor: pointer;
+  border-radius: 5rem;
+}
+
+.goToTop {
+  position: fixed;
+  right: 6%;
+  top: 76%;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+footer {
+  height: 253px;
+  background: #0e0e21;
+}
+
+.footerGore {
+  margin-left: 9.6rem;
+  margin-right: 9.6rem;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 7.2rem;
+}
+
+.footerTitle {
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 49px;
+  color: #657785;
+}
+
+.footerIcons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footerDole {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 9.6rem;
+  margin-right: 9.6rem;
+  margin-top: 3.2rem;
+}
+
+.prava {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #99a8b4;
+}
+
+.footerInfo {
+  display: flex;
+  gap: 3.2rem;
+}
+
+.footerInfo p {
+  color: #99a8b4;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
 }

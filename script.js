@@ -1,7 +1,7 @@
 "use strict";
-////////////////////////////////////////////////////////
+
 //////////////////// PRICING ///////////////////////////
-////////////////////////////////////////////////////////
+
 const prekidacOff = document.querySelector(".prekidac2");
 const prekidacOn = document.querySelector(".prekidac");
 const oldPrice = document.querySelectorAll(".oldprice");
@@ -46,7 +46,7 @@ prekidacOff.addEventListener("click", function () {
   famPrice.innerHTML = `${famYear}€`;
   coPrice.innerHTML = `${coupleYear}€`;
 
-  console.log(indPrice.innerHTML)
+  console.log(indPrice.innerHTML);
 
   oldPrice.forEach((el) => {
     el.style.opacity = "1";
@@ -72,6 +72,7 @@ prekidacOn.addEventListener("click", function () {
 });
 
 /////////////////// MODAL //////////////////////////////////
+
 const btnCloseModal = document.querySelector(".x");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -84,18 +85,17 @@ const closeModal = function () {
 btnCloseModal.addEventListener("click", closeModal);
 
 /////////////////////////// COMMENTS ////////////////////////////
+
 const loadMore = document.querySelector(".showMoreCom");
 const commentsCon = document.querySelector(".commentsCon");
 
-
-let data
-let i
-let currentComments=0;
+let data;
+let i;
+let currentComments = 0;
 
 const show5comments = function (data) {
-  currentComments= currentComments+5;
-  for (i = 0; i < currentComments; i++) {
-    
+  currentComments = currentComments + 5;
+  for (i = currentComments - 5; i < currentComments; i++) {
     let commentHtml = `
     <div class="comments centarC">
     <div class="comment">
@@ -115,7 +115,6 @@ const show5comments = function (data) {
           `;
     commentsCon.insertAdjacentHTML("beforeend", commentHtml);
   }
-  
 };
 const fetchComments = async function () {
   const res = await fetch("https://mockend.com/Infomedia-bl/fake-api/comments");
@@ -124,19 +123,10 @@ const fetchComments = async function () {
 };
 fetchComments();
 
-loadMore.addEventListener("click",() =>show5comments(data));
-
-
-
-
-// loadMore.addEventListener("click", (e) => {
-//   for (let i = currentComments; i < currentComments + 5; i++)
-//     currentComments += 5;
-//   console.log("currentComments");
-//   show5comments();
-// });
+loadMore.addEventListener("click", () => show5comments(data));
 
 ////////////////////////////////// VALIDATION ///////////////////////
+
 let inputs = document.querySelectorAll("input");
 let errors = {
   name: [],
@@ -265,9 +255,62 @@ const validateExpDate = (expDate) => {
 };
 
 ///////////////////////// WIDGET ///////////////////////////
-const closeWidget = document.querySelector(".xWidg");
+
+const closeWidget = document.querySelector(".widgX");
 const streamersBox = document.querySelector(".streamersBox");
+const streamersList = document.querySelector(".streamersList");
+const openStreamerBox = document.querySelector(".widget");
+console.log(openStreamerBox);
+
+openStreamerBox.addEventListener("click", function () {
+  streamersBox.style.display = "block";
+  overlay.style.display = "block";
+});
 
 closeWidget.addEventListener("click", function () {
   streamersBox.style.display = "none";
+  overlay.style.display = "none";
 });
+
+let streamers;
+let data2;
+const showStreamers = function (data2) {
+  const activityBorder = document.querySelectorAll(".streamerImg");
+  const activityCircle = document.querySelectorAll(".status");
+  data2.forEach(function (streamer, i) {
+    const streamerHtml = `
+    <div class="streamer">
+    <div class="status"></div>
+    <div class="streamerImg"><img src='${streamer.avatarUrl}'/></div>
+    <div class="streamerName">${streamer.name}</div>
+    <div class="streamerEmail">(${streamer.email})</div>
+    <div class="streamerAction">${streamer.statusMessage}</div>
+  </div>
+    `;
+    streamersList.insertAdjacentHTML("beforeend", streamerHtml);
+
+    // if (streamer.activity === "online") {
+    //   activityBorder[i].style.border = "2px solid #1AD838";
+    //   activityCircle[i].style.backgroundColor = "#1AD838";
+    // }
+
+    // if (streamer.activity === "offline") {
+    //   activityBorder[i].style.border = "2px solid #99A8B4";
+    //   activityCircle[i].style.backgroundColor = "#99A8B4";
+    // }
+    // if (streamer.activity === "streaming") {
+    //   activityBorder[i].style.border = "2px solid #E76A10";
+    //   activityCircle[i].style.backgroundColor = "#E76A10";
+    // }
+  });
+};
+
+const fetchStreamers = async function () {
+  const res = await fetch("https://mockend.com/Infomedia-bl/fake-api/users");
+  data2 = await res.json();
+  showStreamers(data2);
+  console.log(data2);
+};
+fetchStreamers();
+
+///////////////////// ORDER FORM ///////////////////////////////////
