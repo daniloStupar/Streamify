@@ -218,10 +218,15 @@ closeWidget.addEventListener("click", function () {
 
 let streamers;
 let data2;
+
 const showStreamers = function (data2) {
-  const activityBorder = document.querySelectorAll(".streamerImg");
-  const activityCircle = document.querySelectorAll(".status");
-  data2.forEach(function (streamer, i) {
+
+  const filterStreamers=data2.filter((streamer) => streamer.activity== "online" || streamer.activity== "streaming");
+  const sortedStreamers=filterStreamers.sort(function(, streaming){return online - streaming});
+  console.log(sortedStreamers);
+
+ 
+  filterStreamers.forEach(function (streamer, i) {
     const streamerHtml = `
     <div class="streamer">
     <div class="status"></div>
@@ -231,25 +236,32 @@ const showStreamers = function (data2) {
     <div class="streamerAction">${streamer.statusMessage}</div>
   </div>
     `;
+
     streamersList.insertAdjacentHTML("beforeend", streamerHtml);
 
-    if (streamer.activity === "online") {
-      streamers.forEach(() => {
-        activityBorder[i].style.border = "2px solid #1AD838";
-        activityCircle[i].style.backgroundColor = "#1AD838";
-      });
-    }
+    
+    
 
-    if (streamer.activity === "offline") {
-      activityBorder[i].style.border = "2px solid #99A8B4";
+    const activityBorder = document.querySelectorAll(".streamerImg");
+    const activityCircle = document.querySelectorAll(".status");
+  
+    if(streamer.activity == "online") {
+        activityBorder[i].style.border = "3px solid #1AD838";
+        activityCircle[i].style.backgroundColor = "#1AD838";
+      };
+    if (streamer.activity == "offline") {
+      activityBorder[i].style.border = "3px solid #99A8B4";
       activityCircle[i].style.backgroundColor = "#99A8B4";
     }
-    if (streamer.activity === "streaming") {
-      activityBorder[i].style.border = "2px solid #E76A10";
+    if (streamer.activity == "streaming") {
+      activityBorder[i].style.border = "3px solid #E76A10";
       activityCircle[i].style.backgroundColor = "#E76A10";
     }
+    
   });
+  
 };
+
 
 const fetchStreamers = async function () {
   const res = await fetch("https://mockend.com/Infomedia-bl/fake-api/users");
