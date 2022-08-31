@@ -166,8 +166,8 @@ button {
   color: white;
   margin-bottom: 3.2rem;
 }
-.paketTip{
-  color: #072D49;
+.paketTip {
+  color: #072d49;
   font-weight: 600;
   font-size: 20px;
   line-height: 28px;
@@ -365,7 +365,6 @@ button {
   font-size: 3.6rem;
 }
 
-
 .input-fields-cou {
   width: 506px;
   height: 56px;
@@ -380,13 +379,13 @@ button {
   font-size: 1.8rem;
 }
 
-.inputPos{
+.inputPos {
   position: relative;
 }
 
-.iconCoupon{
+.iconCoupon {
   position: absolute;
-  top: 17px;
+  top: 15px;
   left: 12px;
   color: #657785;
   margin-bottom: 7rem;
@@ -515,11 +514,11 @@ button {
   cursor: pointer;
 }
 
-.noComment{
+.noComment {
   color: #657785;
   font-size: 2rem;
   text-align: center;
-  margin-top:3.2rem;
+  margin-top: 3.2rem;
   opacity: 0;
 }
 
@@ -604,6 +603,14 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: space-between;
   gap: 64px;
+}
+
+.total {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 64px;
+  font-size: 2.4rem;
 }
 
 .inputInfo {
@@ -883,4 +890,8 @@ footer {
   font-weight: 600;
   font-size: 16px;
   line-height: 20px;
+}
+
+.kvacica {
+  color: #10b0e7;
 }

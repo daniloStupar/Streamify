@@ -1,70 +1,5 @@
 "use strict";
 
-//////////////////// PRICING ///////////////////////////
-
-const prekidacOff = document.querySelector(".prekidac2");
-const prekidacOn = document.querySelector(".prekidac");
-const oldPrice = document.querySelectorAll(".oldprice");
-const month = document.querySelector(".month");
-const year = document.querySelector(".year");
-const indPrice = document.querySelector(".indPrice");
-const famPrice = document.querySelector(".famPr");
-const coPrice = document.querySelector(".coPr");
-const oldReg = document.querySelector(".oldReg");
-const famReg = document.querySelector(".famReg");
-const coReg = document.querySelector(".coReg");
-
-let individualMonth = 4.99;
-let familyMonth = 9.99;
-let coupleMonth = 6.99;
-
-let indYearReg = individualMonth * 12;
-let famYearReg = familyMonth * 12;
-let coupleYearReg = coupleMonth * 12;
-
-let individualYear = (individualMonth * 12 - 0.2 * (individualMonth * 12)).toFixed(2);
-let famYear = (familyMonth * 12 - 0.2 * (familyMonth * 12)).toFixed(2);
-let coupleYear = (coupleMonth * 12 - 0.2 * (coupleMonth * 12)).toFixed(2);;
-
-indPrice.innerHTML = `${individualMonth}€`;
-famPrice.innerHTML = `${familyMonth}€`;
-coPrice.innerHTML = `${coupleMonth}€`;
-
-prekidacOff.addEventListener("click", function () {
-  prekidacOff.style.display = "none";
-  prekidacOn.style.display = "flex";
-  month.style.fontWeight = "400";
-  year.style.fontWeight = "600";
-
-  indPrice.innerHTML = `${individualYear}€`;
-  famPrice.innerHTML = `${famYear}€`;
-  coPrice.innerHTML = `${coupleYear}€`;
-
-  console.log(indPrice.innerHTML);
-
-  oldPrice.forEach((el) => {
-    el.style.opacity = "1";
-  });
-  oldReg.innerHTML = `${indYearReg}€`;
-  famReg.innerHTML = `${famYearReg}€`;
-  coReg.innerHTML = `${coupleYearReg}€`;
-});
-
-prekidacOn.addEventListener("click", function () {
-  prekidacOff.style.display = "flex";
-  prekidacOn.style.display = "none";
-  month.style.fontWeight = "600";
-  year.style.fontWeight = "400";
-
-  indPrice.innerHTML = `${individualMonth}€`;
-  famPrice.innerHTML = `${familyMonth}€`;
-  coPrice.innerHTML = `${coupleMonth}€`;
-
-  oldPrice.forEach((el) => {
-    el.style.opacity = "0";
-  });
-});
-
 /////////////////// MODAL //////////////////////////////////
 
 const btnCloseModal = document.querySelector(".x");
@@ -82,7 +17,7 @@ btnCloseModal.addEventListener("click", closeModal);
 
 const loadMore = document.querySelector(".showMoreCom");
 const commentsCon = document.querySelector(".commentsCon");
-const noMoreComments=document.querySelector(".noComment")
+const noMoreComments = document.querySelector(".noComment");
 
 let data;
 let i;
@@ -110,9 +45,9 @@ const show5comments = function (data) {
           `;
     commentsCon.insertAdjacentHTML("beforeend", commentHtml);
   }
-  if(currentComments>=100){
-    noMoreComments.style.opacity="1";
-    loadMore.style.background="#657785";
+  if (currentComments >= 100) {
+    noMoreComments.style.opacity = "1";
+    loadMore.style.background = "#657785";
   }
 };
 const fetchComments = async function () {
@@ -128,7 +63,7 @@ loadMore.addEventListener("click", () => show5comments(data));
 
 let inputs = document.querySelectorAll("input");
 let errors = {
-  emailCoupon:[],
+  emailCoupon: [],
   name: [],
   address: [],
   email: [],
@@ -144,11 +79,13 @@ inputs.forEach((element) => {
     let inputName = currentInput.getAttribute("name");
     if (inputValeu.length >= 0) {
       errors[inputName] = [];
+      console.log("asdasdasda", { inputValeu });
       switch (inputName) {
         case "name":
           let validation = inputValeu.trim();
           validation = validation.split(" ");
           console.log(validation);
+
           if (validation.length < 2) {
             errors[inputName].push("Please enter a valid name!");
           }
@@ -170,11 +107,11 @@ inputs.forEach((element) => {
           }
           break;
 
-          case "emailCoupon":
-            if (!validateEmail(inputValeu)) {
-              errors[inputName].push("Please enter a valid email!");
-            }
-            break; 
+        case "emailCoupon":
+          if (!validateEmail(inputValeu)) {
+            errors[inputName].push("Please enter a valid email!");
+          }
+          break;
 
         case "cardNumber":
           if (!validateCardNum(inputValeu)) {
@@ -216,9 +153,11 @@ const populateErrors = () => {
     let parentElement = input.parentElement;
     let errorsElement = document.createElement("ul");
     parentElement.appendChild(errorsElement);
+    console.log(input);
 
     errors[key].forEach((error) => {
       let li = document.createElement("li");
+      input.style.border = "1px solid #F63F34";
       li.innerText = error;
       errorsElement.appendChild(li);
     });
@@ -317,26 +256,117 @@ const fetchStreamers = async function () {
 };
 fetchStreamers();
 
+//////////////////// PRICING ///////////////////////////
+
+const prekidacOff = document.querySelector(".prekidac2");
+const prekidacOn = document.querySelector(".prekidac");
+const oldPrice = document.querySelectorAll(".oldprice");
+const month = document.querySelector(".month");
+const year = document.querySelector(".year");
+const indPrice = document.querySelector(".indPrice");
+const famPrice = document.querySelector(".famPr");
+const coPrice = document.querySelector(".coPr");
+const oldReg = document.querySelector(".oldReg");
+const famReg = document.querySelector(".famReg");
+const coReg = document.querySelector(".coReg");
+
+let individual = 4.99;
+let family = 9.99;
+let couple = 6.99;
+let packetTime = "Monthly";
+let total;
+
+let indYearReg = individual * 12;
+let famYearReg = family * 12;
+let coupleYearReg = couple * 12;
+
+let individualYear = (individual * 12 - 0.2 * (individual * 12)).toFixed(2);
+let famYear = (family * 12 - 0.2 * (family * 12)).toFixed(2);
+let coupleYear = (couple * 12 - 0.2 * (couple * 12)).toFixed(2);
+
+indPrice.innerHTML = `${individual}€`;
+famPrice.innerHTML = `${family}€`;
+coPrice.innerHTML = `${couple}€`;
+
+prekidacOff.addEventListener("click", function () {
+  prekidacOff.style.display = "none";
+  prekidacOn.style.display = "flex";
+  month.style.fontWeight = "400";
+  year.style.fontWeight = "600";
+
+  packetTime = "Yearly";
+  individual = individualYear;
+  family = famYear;
+  couple = coupleYear;
+  indPrice.innerHTML = `${individual}€`;
+  famPrice.innerHTML = `${family}€`;
+  coPrice.innerHTML = `${couple}€`;
+  individual = indYearReg;
+  family = famYearReg;
+  couple = coupleYearReg;
+
+  oldPrice.forEach((el) => {
+    el.style.opacity = "1";
+  });
+  oldReg.innerHTML = `${indYearReg}€`;
+  famReg.innerHTML = `${famYearReg}€`;
+  coReg.innerHTML = `${coupleYearReg}€`;
+});
+
+prekidacOn.addEventListener("click", function () {
+  prekidacOff.style.display = "flex";
+  prekidacOn.style.display = "none";
+  month.style.fontWeight = "600";
+  year.style.fontWeight = "400";
+
+  packetTime = "Monthly";
+  individual = 4.99;
+  family = 9.99;
+  couple = 6.99;
+
+  indPrice.innerHTML = `${individual}€`;
+  famPrice.innerHTML = `${family}€`;
+  coPrice.innerHTML = `${couple}€`;
+
+  oldPrice.forEach((el) => {
+    el.style.opacity = "0";
+  });
+});
 ///////////////////// ORDER FORM ///////////////////////////////////
 
-const monthlyIndividual=document.querySelector(".choose1");
-const monthlyFamily=document.querySelector(".choose2");
-const monthlyCouple=document.querySelector(".chose3")
-const paketTip=document.querySelector(".paketTip");
-const paketVrijeme=document.querySelector(".paketVrijeme")
+const Individual = document.querySelector(".choose1");
+const Family = document.querySelector(".choose2");
+const Couple = document.querySelector(".choose3");
+const paketTip = document.querySelector(".paketTip");
+const paketVrijeme = document.querySelector(".paketVrijeme");
+const paketCijena = document.querySelector(".packet-price");
+const subtotal = document.querySelector(".subtotal");
+const discount = document.querySelector(".discount");
+const totalPrice = document.querySelector(".totalPrice");
+const familyPaket = "FAMILY";
+const couplePaket = "COUPLE";
+const individualPaket = "INDIVIDUAL";
 
-monthlyIndividual.addEventListener(".click",function(){
+Individual.addEventListener("click", function () {
+  paketTip.innerHTML = individualPaket;
+  paketVrijeme.innerHTML = packetTime;
+  paketCijena.innerHTML = individual;
+  subtotal.innerHTML = individual;
+  totalPrice.innerHTML = individual;
+});
 
-})
+Couple.addEventListener("click", function () {
+  paketTip.innerHTML = couplePaket;
+  paketVrijeme.innerHTML = packetTime;
+  paketCijena.innerHTML = couple;
+  subtotal.innerHTML = couple;
+  totalPrice.innerHTML = couple;
+});
 
-// let individualMonth = 4.99;
-// let familyMonth = 9.99;
-// let coupleMonth = 6.99;
-
-// let indYearReg = individualMonth * 12;
-// let famYearReg = familyMonth * 12;
-// let coupleYearReg = coupleMonth * 12;
-
-// let individualYear = (individualMonth * 12 - 0.2 * (individualMonth * 12)).toFixed(2);
-// let famYear = (familyMonth * 12 - 0.2 * (familyMonth * 12)).toFixed(2);
-// let coupleYear = (coupleMonth * 12 - 0.2 * (coupleMonth * 12)).toFixed(2);;
+Family.addEventListener("click", function () {
+  paketTip.innerHTML = individualPaket;
+  paketVrijeme.innerHTML = packetTime;
+  paketCijena.innerHTML = family;
+  subtotal.innerHTML = family;
+  totalPrice.innerHTML = family;
+});

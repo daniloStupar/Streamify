@@ -17,4 +17,10 @@
   .streamersList {
     width: 90%;
   }
+  .form {
+    max-width: 44rem;
+  }
+  .footerInfo p {
+    font-size: 1.4rem;
+  }
 }
