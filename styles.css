@@ -31,7 +31,7 @@ html {
   width: 100%;
   height: 100%;
   cursor: pointer;
-  padding-top: 1.2rem;
+  padding-top: 1rem;
 }
 
 #paddMid {
@@ -590,6 +590,10 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   font-size: 20px;
+}
+
+.cardholderContainer {
+  width: 50rem;
 }
 
 .cardInfo {

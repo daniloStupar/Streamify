@@ -233,19 +233,21 @@ const showStreamers = function (data2) {
     `;
     streamersList.insertAdjacentHTML("beforeend", streamerHtml);
 
-    // if (streamer.activity === "online") {
-    //   activityBorder[i].style.border = "2px solid #1AD838";
-    //   activityCircle[i].style.backgroundColor = "#1AD838";
-    // }
+    if (streamer.activity === "online") {
+      streamers.forEach(() => {
+        activityBorder[i].style.border = "2px solid #1AD838";
+        activityCircle[i].style.backgroundColor = "#1AD838";
+      });
+    }
 
-    // if (streamer.activity === "offline") {
-    //   activityBorder[i].style.border = "2px solid #99A8B4";
-    //   activityCircle[i].style.backgroundColor = "#99A8B4";
-    // }
-    // if (streamer.activity === "streaming") {
-    //   activityBorder[i].style.border = "2px solid #E76A10";
-    //   activityCircle[i].style.backgroundColor = "#E76A10";
-    // }
+    if (streamer.activity === "offline") {
+      activityBorder[i].style.border = "2px solid #99A8B4";
+      activityCircle[i].style.backgroundColor = "#99A8B4";
+    }
+    if (streamer.activity === "streaming") {
+      activityBorder[i].style.border = "2px solid #E76A10";
+      activityCircle[i].style.backgroundColor = "#E76A10";
+    }
   });
 };
 
@@ -274,7 +276,10 @@ let individual = 4.99;
 let family = 9.99;
 let couple = 6.99;
 let packetTime = "Monthly";
-let total;
+let totalFamily = family;
+let totalIndividual = individual;
+let totalCouple = couple;
+let discountOrder = "-";
 
 let indYearReg = individual * 12;
 let famYearReg = family * 12;
@@ -294,6 +299,7 @@ prekidacOff.addEventListener("click", function () {
   month.style.fontWeight = "400";
   year.style.fontWeight = "600";
 
+  discountOrder = "20%";
   packetTime = "Yearly";
   individual = individualYear;
   family = famYear;
@@ -305,6 +311,9 @@ prekidacOff.addEventListener("click", function () {
   family = famYearReg;
   couple = coupleYearReg;
 
+  totalIndividual = individualYear;
+  totalFamily = famYear;
+  totalCouple = coupleYear;
   oldPrice.forEach((el) => {
     el.style.opacity = "1";
   });
@@ -319,10 +328,15 @@ prekidacOn.addEventListener("click", function () {
   month.style.fontWeight = "600";
   year.style.fontWeight = "400";
 
+  discountOrder = "-";
   packetTime = "Monthly";
   individual = 4.99;
   family = 9.99;
   couple = 6.99;
+
+  totalFamily = family;
+  totalIndividual = individual;
+  totalCouple = couple;
 
   indPrice.innerHTML = `${individual}€`;
   famPrice.innerHTML = `${family}€`;
@@ -350,23 +364,26 @@ const individualPaket = "INDIVIDUAL";
 Individual.addEventListener("click", function () {
   paketTip.innerHTML = individualPaket;
   paketVrijeme.innerHTML = packetTime;
-  paketCijena.innerHTML = individual;
-  subtotal.innerHTML = individual;
-  totalPrice.innerHTML = individual;
+  discount.innerHTML = `${discountOrder}`;
+  paketCijena.innerHTML = `${individual}€`;
+  subtotal.innerHTML = `${individual}€`;
+  totalPrice.innerHTML = `${totalIndividual}€`;
 });
 
 Couple.addEventListener("click", function () {
   paketTip.innerHTML = couplePaket;
   paketVrijeme.innerHTML = packetTime;
-  paketCijena.innerHTML = couple;
-  subtotal.innerHTML = couple;
-  totalPrice.innerHTML = couple;
+  discount.innerHTML = `${discountOrder}`;
+  paketCijena.innerHTML = `${couple}€`;
+  subtotal.innerHTML = `${couple}€`;
+  totalPrice.innerHTML = `${totalCouple}€`;
 });
 
 Family.addEventListener("click", function () {
   paketTip.innerHTML = individualPaket;
   paketVrijeme.innerHTML = packetTime;
-  paketCijena.innerHTML = family;
-  subtotal.innerHTML = family;
-  totalPrice.innerHTML = family;
+  discount.innerHTML = `${discountOrder}`;
+  paketCijena.innerHTML = `${family}€`;
+  subtotal.innerHTML = `${family}€`;
+  totalPrice.innerHTML = `${totalFamily}€`;
 });
