@@ -423,7 +423,7 @@ Family.forEach((el) =>
   })
 );
 
-//////////////////////////////// PRICE MOBILE //////////////////
+//////////////////////////////// SLIDER //////////////////
 
 const slider = function () {
   const slides = document.querySelectorAll(".slide");
@@ -434,7 +434,6 @@ const slider = function () {
   let curSlide = 0;
   const maxSlide = slides.length;
 
-  // Functions
   const createDots = function () {
     slides.forEach(function (_, i) {
       dotContainer.insertAdjacentHTML(
@@ -460,7 +459,6 @@ const slider = function () {
     );
   };
 
-  // Next slide
   const nextSlide = function () {
     if (curSlide === maxSlide - 1) {
       curSlide = 0;
@@ -508,3 +506,14 @@ const slider = function () {
   });
 };
 slider();
+
+///////////////// GO TO TOP //////////////////////////////////
+
+const goToTop=document.querySelector(".goToTop")
+
+goToTop.addEventListener("click",function(){
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  })
+})
