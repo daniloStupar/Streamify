@@ -220,13 +220,25 @@ let streamers;
 let data2;
 
 const showStreamers = function (data2) {
+  const filterStreamers = data2.filter(
+    (streamer) =>
+      streamer.activity == "online" || streamer.activity == "streaming"
+  );
 
-  const filterStreamers=data2.filter((streamer) => streamer.activity== "online" || streamer.activity== "streaming");
-  const sortedStreamers=filterStreamers.sort(function(, streaming){return online - streaming});
+  const sortedStreamers = filterStreamers.sort(function (a, b) {
+    let x = a.activity;
+    let y = b.activity;
+    if (x < y) {
+      return -1;
+    }
+    if (x > y) {
+      return 1;
+    }
+    return 0;
+  });
   console.log(sortedStreamers);
 
- 
-  filterStreamers.forEach(function (streamer, i) {
+  sortedStreamers.forEach(function (streamer, i) {
     const streamerHtml = `
     <div class="streamer">
     <div class="status"></div>
@@ -239,16 +251,13 @@ const showStreamers = function (data2) {
 
     streamersList.insertAdjacentHTML("beforeend", streamerHtml);
 
-    
-    
-
     const activityBorder = document.querySelectorAll(".streamerImg");
     const activityCircle = document.querySelectorAll(".status");
-  
-    if(streamer.activity == "online") {
-        activityBorder[i].style.border = "3px solid #1AD838";
-        activityCircle[i].style.backgroundColor = "#1AD838";
-      };
+
+    if (streamer.activity == "online") {
+      activityBorder[i].style.border = "3px solid #1AD838";
+      activityCircle[i].style.backgroundColor = "#1AD838";
+    }
     if (streamer.activity == "offline") {
       activityBorder[i].style.border = "3px solid #99A8B4";
       activityCircle[i].style.backgroundColor = "#99A8B4";
@@ -257,11 +266,8 @@ const showStreamers = function (data2) {
       activityBorder[i].style.border = "3px solid #E76A10";
       activityCircle[i].style.backgroundColor = "#E76A10";
     }
-    
   });
-  
 };
-
 
 const fetchStreamers = async function () {
   const res = await fetch("https://mockend.com/Infomedia-bl/fake-api/users");
@@ -277,12 +283,12 @@ const prekidacOn = document.querySelector(".prekidac");
 const oldPrice = document.querySelectorAll(".oldprice");
 const month = document.querySelector(".month");
 const year = document.querySelector(".year");
-const indPrice = document.querySelector(".indPrice");
-const famPrice = document.querySelector(".famPr");
-const coPrice = document.querySelector(".coPr");
-const oldReg = document.querySelector(".oldReg");
-const famReg = document.querySelector(".famReg");
-const coReg = document.querySelector(".coReg");
+const indPrice = document.querySelectorAll(".indPrice");
+const famPrice = document.querySelectorAll(".famPr");
+const coPrice = document.querySelectorAll(".coPr");
+const oldReg = document.querySelectorAll(".oldReg");
+const famReg = document.querySelectorAll(".famReg");
+const coReg = document.querySelectorAll(".coReg");
 
 let individual = 4.99;
 let family = 9.99;
@@ -291,7 +297,9 @@ let packetTime = "Monthly";
 let totalFamily = family;
 let totalIndividual = individual;
 let totalCouple = couple;
-let discountOrder = "-";
+let discountIndividual = 0.0;
+let discountFamily = 0.0;
+let discountCouple = 0.0;
 
 let indYearReg = individual * 12;
 let famYearReg = family * 12;
@@ -301,37 +309,43 @@ let individualYear = (individual * 12 - 0.2 * (individual * 12)).toFixed(2);
 let famYear = (family * 12 - 0.2 * (family * 12)).toFixed(2);
 let coupleYear = (couple * 12 - 0.2 * (couple * 12)).toFixed(2);
 
-indPrice.innerHTML = `${individual}€`;
-famPrice.innerHTML = `${family}€`;
-coPrice.innerHTML = `${couple}€`;
-
+indPrice.forEach((el) => (el.innerHTML = `${individual}€`));
+famPrice.forEach((el) => (el.innerHTML = `${family}€`));
+coPrice.forEach((el) => (el.innerHTML = `${couple}€`));
 prekidacOff.addEventListener("click", function () {
   prekidacOff.style.display = "none";
   prekidacOn.style.display = "flex";
   month.style.fontWeight = "400";
   year.style.fontWeight = "600";
 
-  discountOrder = "20%";
   packetTime = "Yearly";
+
   individual = individualYear;
   family = famYear;
   couple = coupleYear;
-  indPrice.innerHTML = `${individual}€`;
-  famPrice.innerHTML = `${family}€`;
-  coPrice.innerHTML = `${couple}€`;
+
+  indPrice.forEach((el) => (el.innerHTML = `${individual}€`));
+  famPrice.forEach((el) => (el.innerHTML = `${family}€`));
+  coPrice.forEach((el) => (el.innerHTML = `${couple}€`));
+
   individual = indYearReg;
   family = famYearReg;
   couple = coupleYearReg;
 
+  discountIndividual = (indYearReg - individualYear).toFixed(2);
+  discountFamily = (famYearReg - famYear).toFixed(2);
+  discountCouple = (coupleYearReg - coupleYear).toFixed(2);
+
   totalIndividual = individualYear;
   totalFamily = famYear;
   totalCouple = coupleYear;
+
   oldPrice.forEach((el) => {
     el.style.opacity = "1";
   });
-  oldReg.innerHTML = `${indYearReg}€`;
-  famReg.innerHTML = `${famYearReg}€`;
-  coReg.innerHTML = `${coupleYearReg}€`;
+  oldReg.forEach((el) => (el.innerHTML = `${indYearReg}€`));
+  famReg.forEach((el) => (el.innerHTML = `${famYearReg}€`));
+  coReg.forEach((el) => (el.innerHTML = `${coupleYearReg}€`));
 });
 
 prekidacOn.addEventListener("click", function () {
@@ -340,7 +354,6 @@ prekidacOn.addEventListener("click", function () {
   month.style.fontWeight = "600";
   year.style.fontWeight = "400";
 
-  discountOrder = "-";
   packetTime = "Monthly";
   individual = 4.99;
   family = 9.99;
@@ -350,9 +363,13 @@ prekidacOn.addEventListener("click", function () {
   totalIndividual = individual;
   totalCouple = couple;
 
-  indPrice.innerHTML = `${individual}€`;
-  famPrice.innerHTML = `${family}€`;
-  coPrice.innerHTML = `${couple}€`;
+  discountIndividual = 0.0;
+  discountFamily = 0.0;
+  discountCouple = 0.0;
+
+  indPrice.forEach((el) => (el.innerHTML = `${individual}€`));
+  famPrice.forEach((el) => (el.innerHTML = `${family}€`));
+  coPrice.forEach((el) => (el.innerHTML = `${couple}€`));
 
   oldPrice.forEach((el) => {
     el.style.opacity = "0";
@@ -360,9 +377,9 @@ prekidacOn.addEventListener("click", function () {
 });
 ///////////////////// ORDER FORM ///////////////////////////////////
 
-const Individual = document.querySelector(".choose1");
-const Family = document.querySelector(".choose2");
-const Couple = document.querySelector(".choose3");
+const Individual = document.querySelectorAll(".choose1");
+const Family = document.querySelectorAll(".choose2");
+const Couple = document.querySelectorAll(".choose3");
 const paketTip = document.querySelector(".paketTip");
 const paketVrijeme = document.querySelector(".paketVrijeme");
 const paketCijena = document.querySelector(".packet-price");
@@ -373,29 +390,121 @@ const familyPaket = "FAMILY";
 const couplePaket = "COUPLE";
 const individualPaket = "INDIVIDUAL";
 
-Individual.addEventListener("click", function () {
-  paketTip.innerHTML = individualPaket;
-  paketVrijeme.innerHTML = packetTime;
-  discount.innerHTML = `${discountOrder}`;
-  paketCijena.innerHTML = `${individual}€`;
-  subtotal.innerHTML = `${individual}€`;
-  totalPrice.innerHTML = `${totalIndividual}€`;
-});
+Individual.forEach((el) =>
+  el.addEventListener("click", function () {
+    paketTip.innerHTML = individualPaket;
+    paketVrijeme.innerHTML = packetTime;
+    discount.innerHTML = `${discountIndividual}€`;
+    paketCijena.innerHTML = `${individual}€`;
+    subtotal.innerHTML = `${individual}€`;
+    totalPrice.innerHTML = `${totalIndividual}€`;
+  })
+);
 
-Couple.addEventListener("click", function () {
-  paketTip.innerHTML = couplePaket;
-  paketVrijeme.innerHTML = packetTime;
-  discount.innerHTML = `${discountOrder}`;
-  paketCijena.innerHTML = `${couple}€`;
-  subtotal.innerHTML = `${couple}€`;
-  totalPrice.innerHTML = `${totalCouple}€`;
-});
+Couple.forEach((el) =>
+  el.addEventListener("click", function () {
+    paketTip.innerHTML = couplePaket;
+    paketVrijeme.innerHTML = packetTime;
+    discount.innerHTML = `${discountCouple}€`;
+    paketCijena.innerHTML = `${couple}€`;
+    subtotal.innerHTML = `${couple}€`;
+    totalPrice.innerHTML = `${totalCouple}€`;
+  })
+);
 
-Family.addEventListener("click", function () {
-  paketTip.innerHTML = individualPaket;
-  paketVrijeme.innerHTML = packetTime;
-  discount.innerHTML = `${discountOrder}`;
-  paketCijena.innerHTML = `${family}€`;
-  subtotal.innerHTML = `${family}€`;
-  totalPrice.innerHTML = `${totalFamily}€`;
-});
+Family.forEach((el) =>
+  el.addEventListener("click", function () {
+    paketTip.innerHTML = individualPaket;
+    paketVrijeme.innerHTML = packetTime;
+    discount.innerHTML = `${discountFamily}€`;
+    paketCijena.innerHTML = `${family}€`;
+    subtotal.innerHTML = `${family}€`;
+    totalPrice.innerHTML = `${totalFamily}€`;
+  })
+);
+
+//////////////////////////////// PRICE MOBILE //////////////////
+
+const slider = function () {
+  const slides = document.querySelectorAll(".slide");
+  const btnLeft = document.querySelector(".slider__btn--left");
+  const btnRight = document.querySelector(".slider__btn--right");
+  const dotContainer = document.querySelector(".dots");
+
+  let curSlide = 0;
+  const maxSlide = slides.length;
+
+  // Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        "beforeend",
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
+
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll(".dots__dot")
+      .forEach((dot) => dot.classList.remove("dots__dot--active"));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add("dots__dot--active");
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+
+  // Next slide
+  const nextSlide = function () {
+    if (curSlide === maxSlide - 1) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
+
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide - 1;
+    } else {
+      curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const init = function () {
+    goToSlide(1);
+    createDots();
+
+    activateDot(1);
+  };
+  init();
+
+  // Event handlers
+  btnRight.addEventListener("click", nextSlide);
+  btnLeft.addEventListener("click", prevSlide);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") prevSlide();
+    e.key === "ArrowRight" && nextSlide();
+  });
+
+  dotContainer.addEventListener("click", function (e) {
+    if (e.target.classList.contains("dots__dot")) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
+};
+slider();
