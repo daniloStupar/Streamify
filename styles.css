@@ -472,12 +472,10 @@ button {
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
-  width: 62.4rem;
   height: 16.3rem;
   position: relative;
 }
 .comName {
-  width: 15.2rem;
   height: 2.9rem;
   font-weight: 600;
   font-size: 2.4rem;
@@ -500,7 +498,6 @@ button {
   font-size: 1.4rem;
 }
 .comContent {
-  width: 62.4rem;
   font-size: 1.4rem;
   line-height: 2rem;
   color: #072d49;
