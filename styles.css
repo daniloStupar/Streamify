@@ -76,7 +76,7 @@ button {
   width: 8rem;
   height: 3.8rem;
   background: #10b0e7;
-  border-radius: 64px;
+  border-radius: 6.4rem;
   display: none;
   align-items: center;
   justify-content: flex-end;
@@ -86,7 +86,7 @@ button {
   width: 8rem;
   height: 3.8rem;
   background: #99a8b4;
-  border-radius: 64px;
+  border-radius: 6.4rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -94,10 +94,10 @@ button {
 }
 
 .dis {
-  width: 104px;
-  height: 23px;
+  width: 10.4rem;
+  height: 2.3rem;
   background: #e76a10;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   font-size: 1.4rem;
   padding: 0.3rem 1.6rem;
 }
@@ -127,10 +127,10 @@ button {
 
 .trial {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #99a8b4;
   display: flex;
-  line-height: 20px;
+  line-height: 2rem;
 }
 .freeb {
   color: #10b0e7;
@@ -170,8 +170,8 @@ button {
 .paketTip {
   color: #072d49;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 2rem;
+  line-height: 2.8rem;
   text-transform: uppercase;
 }
 
@@ -179,8 +179,8 @@ button {
   width: 26.4rem;
   height: 4.4rem;
   border: 0.2rem solid #10b0e7;
-  filter: drop-shadow(0px 4px 8px rgba(101, 119, 133, 0.24));
-  border-radius: 4px;
+  filter: drop-shadow(0rem 0.4rem 0.8rem rgba(101, 119, 133, 0.24));
+  border-radius: 0.4rem;
   background: #0e0e213d;
   color: #f9f9f9;
   font-weight: 600;
@@ -204,7 +204,7 @@ button {
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
   color: #657785;
-  font-size: 1.4rem;
+  font-size: 2.4rem;
 }
 .centarA {
   align-items: centar;
@@ -241,8 +241,8 @@ button {
 }
 .midBtn {
   background: #e76a10;
-  box-shadow: 0px 4px 8px rgba(101, 119, 133, 0.24);
-  border-radius: 4px;
+  box-shadow: 0rem 0.4rem 0.8rem rgba(101, 119, 133, 0.24);
+  border-radius: 0.4rem;
   border: none;
 }
 .bold800 {
@@ -276,6 +276,7 @@ button {
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+  /* background-position: ; */
 }
 
 .headTitle {
@@ -316,8 +317,8 @@ button {
   border: none;
   color: #f9f9f9;
   margin-top: 4rem;
-  box-shadow: 0px 4px 8px rgba(101, 119, 133, 0.24);
-  border-radius: 4px;
+  box-shadow: 0rem 0.4rem 0.8rem rgba(101, 119, 133, 0.24);
+  border-radius: 0.4rem;
   cursor: pointer;
 }
 
@@ -367,16 +368,16 @@ button {
 }
 
 .input-fields-cou {
-  width: 506px;
-  height: 56px;
+  width: 50.6rem;
+  height: 5.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  padding-left: 40px;
-  gap: 8px;
-  border: 1px solid #99a8b4;
-  border-radius: 4px;
+  padding: 1.6rem;
+  padding-left: 4rem;
+  gap: 0.8rem;
+  border: 0.1rem solid #99a8b4;
+  border-radius: 0.4rem;
   font-size: 1.8rem;
   background-color: #f9f9f9;
 }
@@ -387,8 +388,8 @@ button {
 
 .iconCoupon {
   position: absolute;
-  top: 15px;
-  left: 12px;
+  top: 1.5rem;
+  left: 1.2rem;
   color: #657785;
   margin-bottom: 7rem;
 }
@@ -410,21 +411,21 @@ button {
   width: 50.6rem;
   height: 5.6rem;
   border: 0.1rem solid #99a8b4;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   color: #99a8b4;
   margin-bottom: 7rem;
 }
 
 .cuponBtn {
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
   width: 29.9rem;
   height: 6.1rem;
   color: #f9f9f9;
   background: #e76a10;
-  box-shadow: 0px 4px 8px rgba(101, 119, 133, 0.24);
-  border-radius: 4px;
+  box-shadow: 0rem 0.4rem 0.8rem rgba(101, 119, 133, 0.24);
+  border-radius: 0.4rem;
   border: none;
   margin-bottom: 5.6rem;
   cursor: pointer;
@@ -458,9 +459,9 @@ button {
   width: 100%;
   height: 23.5rem;
   display: flex;
-  padding: 40px 32px 32px;
-  gap: 32px;
-  border-bottom: 4px solid #10b0e7;
+  padding: 4rem 3.2rem 3.2rem;
+  gap: 3.2rem;
+  border-bottom: 0.4rem solid #10b0e7;
 }
 
 .slikaCom img {
@@ -493,7 +494,7 @@ button {
   position: absolute;
   top: 0;
   right: 0;
-  height: 17px;
+  height: 1.7rem;
   color: #99a8b4;
   font-size: 1.4rem;
 }
@@ -509,7 +510,7 @@ button {
   width: 19.8rem;
   height: 5.6rem;
   background: #e76a10;
-  box-shadow: 0px 4px 8px rgba(101, 119, 133, 0.24);
+  box-shadow: 0rem 0.4rem 08rem rgba(101, 119, 133, 0.24);
   border-radius: 0.4rem;
   margin-bottom: 11.2rem;
   font-weight: 600;
@@ -538,7 +539,7 @@ button {
 .forms {
   display: flex;
   justify-content: center;
-  gap: 120px;
+  gap: 12rem;
   padding-top: 11.2rem;
 }
 
@@ -557,8 +558,8 @@ button {
 .headerText {
   font-style: normal;
   font-weight: 600;
-  font-size: 32px;
-  line-height: 39px;
+  font-size: 3.2rem;
+  line-height: 3.9rem;
   color: #072d49;
 }
 
@@ -571,11 +572,11 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  padding-left: 40px;
-  gap: 8px;
-  border: 1px solid #99a8b4;
-  border-radius: 4px;
+  padding: 1.6rem;
+  padding-left: 4rem;
+  gap: 0.8rem;
+  border: 0.1rem solid #99a8b4;
+  border-radius: 0.4rem;
   font-size: 1.8rem;
   background-color: #f9f9f9;
 }
@@ -584,11 +585,11 @@ button {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  gap: 8px;
-  border: 1px solid #99a8b4;
-  border-radius: 4px;
-  font-size: 20px;
+  padding: 1.6rem;
+  gap: 0.8rem;
+  border: 0.1rem solid #99a8b4;
+  border-radius: 0.4rem;
+  font-size: 2rem;
   background-color: #f9f9f9;
 }
 
@@ -602,7 +603,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 .cardholderContainer {
@@ -612,40 +613,40 @@ input::-webkit-inner-spin-button {
 .cardInfo {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .orderForm {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 64px;
+  gap: 6.4rem;
 }
 
 .total {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 64px;
+  gap: 6.4rem;
   font-size: 2.4rem;
 }
 
 .inputInfo {
   color: #072d49;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .horizontal-line {
   width: 100%;
-  height: 0px;
-  border: 1px solid #99a8b4;
+  height: 0rem;
+  border: 0.1rem solid #99a8b4;
 }
 
 .lineDark {
   width: 100%;
-  height: 0px;
-  border: 1px solid #657785;
+  height: 0rem;
+  border: 0.1rem solid #657785;
 }
 
 .nekaMargina {
@@ -655,13 +656,13 @@ input::-webkit-inner-spin-button {
 .paymentBtn {
   width: 100%;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 2.4rem;
   color: #f9f9f9;
   background: #e76a10;
-  padding: 16px 40px;
+  padding: 1.6rem 4rem;
   border: none;
-  box-shadow: 0px 4px 8px rgba(101, 119, 133, 0.24);
-  border-radius: 4px;
+  box-shadow: 0rem 0.4rem 0.8rem rgba(101, 119, 133, 0.24);
+  border-radius: 0.4rem;
   cursor: pointer;
   margin-top: 4.8rem;
   margin-bottom: 8.35rem;
@@ -670,30 +671,30 @@ input::-webkit-inner-spin-button {
 .flex-column {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.6rem;
 }
 
 .gap-md {
-  gap: 24px;
+  gap: 2.4rem;
 }
 
 .checkbox {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1.2rem;
   font-size: 1.4rem;
   margin-bottom: 8.35rem;
 }
 
 .checkbox input {
-  width: 18px;
-  height: 18px;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .icon {
   position: absolute;
-  top: 36px;
-  left: 12px;
+  top: 3.6rem;
+  left: 1.4rem;
   color: #657785;
 }
 
@@ -712,7 +713,7 @@ ul li {
   width: 100.4rem;
   height: 88.1rem;
   background: #072d49;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -724,9 +725,9 @@ ul li {
 .widgTitle {
   color: #f9f9f9;
   font-weight: 800;
-  font-size: 40px;
-  left: 56px;
-  top: 56px;
+  font-size: 4rem;
+  left: 5.6rem;
+  top: 5.6rem;
   position: absolute;
 }
 
@@ -740,8 +741,8 @@ ul li {
 }
 
 .streamersList {
-  width: 904px;
-  height: 704px;
+  width: 90.4rem;
+  height: 70rem;
   overflow-y: scroll;
   background: linear-gradient(
       0deg,
@@ -749,13 +750,13 @@ ul li {
       rgba(5, 21, 53, 0.24)
     ),
     #072d49;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(27.2rem, 1fr));
   flex-direction: column;
   align-items: center;
-  padding: 24px 8px;
-  gap: 8px;
+  padding: 2.4rem 0.8rem;
+  gap: 0.8rem;
   position: absolute;
   top: 12.1rem;
   left: 5.6rem;
@@ -766,18 +767,18 @@ ul li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 24px 32px;
-  gap: 8px;
-  width: 272px;
-  height: 216px;
+  padding: 2.4rem 3.2rem;
+  gap: 0.8rem;
+  width: 27.2rem;
+  height: 21.6rem;
   position: relative;
 }
 
 .streamerImg {
-  width: 72px;
-  height: 72px;
-  border: 3px solid #1ad838;
-  border-radius: 64px;
+  width: 7.2rem;
+  height: 7.2rem;
+  border: 0.3rem solid #1ad838;
+  border-radius: 6.4rem;
 
   position: relative;
 }
@@ -790,41 +791,41 @@ ul li {
 }
 
 .streamerName {
-  width: 152px;
-  height: 29px;
+  width: 15.2rem;
+  height: 2.9rem;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
   color: #f9f9f9;
   text-align: center;
 }
 
 .streamerEmail {
   font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 1.6rem;
+  line-height: 2rem;
   color: #657785;
 }
 
 .streamerAction {
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 1.6rem;
+  line-height: 2rem;
   color: #f9f9f9;
 }
 
 .status {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  left: 155px;
-  top: 72px;
+  width: 1.8rem;
+  height: 1.8rem;
+  left: 15.5rem;
+  top: 7.2rem;
   border-radius: 50%;
   z-index: 1;
   background: #1ad838;
 }
 
 ::-webkit-scrollbar {
-  border: 1px solid #10b0e7;
+  border: 0.1rem solid #10b0e7;
   transform: rotate(90deg);
   width: 0.3rem;
   position: absolute;
@@ -833,31 +834,36 @@ ul li {
 
 ::-webkit-scrollbar-thumb {
   position: absolute;
-  width: 5px;
-  height: 24px;
-  left: 24px;
-  top: 114px;
+  width: 0.5rem;
+  height: 2.4rem;
+  left: 2.4rem;
+  top: 11.4rem;
   background: #e76a10;
   transform: rotate(-180deg);
 }
 
 .widget {
-  position: fixed;
-  right: 5%;
-  top: 85%;
   cursor: pointer;
   border-radius: 5rem;
 }
 
 .goToTop {
-  position: fixed;
-  right: 6%;
-  top: 76%;
   cursor: pointer;
 }
 
+.widgTop {
+  position: fixed;
+  top: 80%;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2.5rem;
+  align-items: center;
+  top: 75%;
+  right: 2%;
+}
+
 footer {
-  height: 253px;
+  height: 25rem;
   background: #0e0e21;
 }
 
@@ -871,8 +877,8 @@ footer {
 
 .footerTitle {
   font-weight: 800;
-  font-size: 40px;
-  line-height: 49px;
+  font-size: 4rem;
+  line-height: 4.9rem;
   color: #657785;
 }
 
@@ -891,8 +897,8 @@ footer {
 
 .prava {
   font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 1.6rem;
+  line-height: 2rem;
   color: #99a8b4;
 }
 
@@ -904,8 +910,8 @@ footer {
 .footerInfo p {
   color: #99a8b4;
   font-weight: 600;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 1.6rem;
+  line-height: 2rem;
 }
 
 .kvacica {
@@ -948,15 +954,15 @@ footer {
   position: absolute;
   top: 38%;
   z-index: 10;
-  border: 2px solid black;
+  border: 0.2rem solid black;
   border: none;
   background: rgba(255, 255, 255, 0.7);
   font-family: inherit;
   background-color: #10b0e7;
   color: #333;
   border-radius: 50%;
-  height: 60px;
-  width: 60px;
+  height: 6rem;
+  width: 6rem;
   cursor: pointer;
   display: none;
 }
