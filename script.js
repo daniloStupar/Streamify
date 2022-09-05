@@ -1145,9 +1145,11 @@ const showStreamers = function (data2) {
     <div class="streamer">
     <div class="status"></div>
     <div class="streamerImg"><img src='${streamer.avatarUrl}'/></div>
+    <div>
     <div class="streamerName">${streamer.name}</div>
     <div class="streamerEmail">(${streamer.email})</div>
     <div class="streamerAction">${streamer.statusMessage}</div>
+    <div>
   </div>
     `;
 

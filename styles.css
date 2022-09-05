@@ -271,6 +271,7 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
   /* background-position: ; */
+  
 }
 
 .headTitle {
@@ -983,6 +984,7 @@ footer {
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  display: none;
 }
 
 .slide {

@@ -42,11 +42,17 @@
   html {
     font-size: 55%;
   }
+  .benefits{
+    gap:0rem;
+  }
 }
 
 @media (max-width: 820px) {
   html {
     font-size: 50%;
+  }
+  .benImg{
+    font-size: 45%;
   }
   .comContent {
     font-size: 1.6rem;
@@ -54,4 +60,33 @@
   .header {
     background-position: -14rem 0;
   }
+  .benefits{
+    flex-direction: column;
+    height: 113rem;
+  }
+}
+
+@media(max-width: 760px){
+  .deskPrice{
+   display:none;
+  }
+  .slider{
+    display: block;
+    /* transform: scale(); */
+    }
+    .midHeight {
+      margin-top: 10rem;
+    }
+    .pricing{
+      height:auto ;
+      padding-bottom: 10rem;
+    }
+  .forms{
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
 }
