@@ -271,7 +271,6 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
   /* background-position: ; */
-  
 }
 
 .headTitle {
@@ -911,13 +910,12 @@ ul li {
 
 .widgTop {
   position: fixed;
-  top: 80%;
   display: flex;
   flex-direction: column-reverse;
-  gap: 2.5rem;
+  gap: 2.4rem;
   align-items: center;
-  top: 75%;
-  right: 2%;
+  bottom: 3.9rem;
+  right: 9.6rem;
 }
 
 footer {
