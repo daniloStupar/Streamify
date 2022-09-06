@@ -42,8 +42,8 @@
   html {
     font-size: 55%;
   }
-  .benefits{
-    gap:0rem;
+  .benefits {
+    gap: 0rem;
   }
 }
 
@@ -51,7 +51,7 @@
   html {
     font-size: 50%;
   }
-  .benImg{
+  .benImg {
     font-size: 45%;
   }
   .comContent {
@@ -60,33 +60,136 @@
   .header {
     background-position: -14rem 0;
   }
-  .benefits{
+  .benefits {
     flex-direction: column;
-    height: 113rem;
+    height: 120rem;
   }
 }
 
-@media(max-width: 760px){
-  .deskPrice{
-   display:none;
+@media (max-width: 760px) {
+  html {
+    font-size: 47.5%;
   }
-  .slider{
+  .deskPrice {
+    display: none;
+  }
+  .slider {
     display: block;
     /* transform: scale(); */
-    }
-    .midHeight {
-      margin-top: 10rem;
-    }
-    .pricing{
-      height:auto ;
-      padding-bottom: 10rem;
-    }
-  .forms{
+  }
+  .midHeight {
+    margin-top: 2rem;
+  }
+  .pricing {
+    height: auto;
+    padding-bottom: 10rem;
+  }
+  .forms {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
   }
-
-
-
+  .header {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 6.88%,
+        rgba(255, 255, 255, 0.72) 51.25%
+      ),
+      url(Image.png)-85rem;
+  }
+  .headTitle {
+    color: #f9f9f9;
+    font-size: 3rem;
+  }
+  .headertext {
+    font-size: 6rem;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 37rem;
+    margin-bottom: 2rem;
+  }
+  .headtext {
+    margin: 0;
+    text-align: center;
+    margin-bottom: 7rem;
+  }
+  .headerBtn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .benefits {
+    background-color: #051535;
+  }
+  .footerGore {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    font-size: 2rem;
+    padding-top: 5rem;
+  }
+  .footerDole {
+    flex-direction: column-reverse;
+  }
+  .footerInfo {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+    margin-bottom: 2.4rem;
+    font-size: 2rem;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 43rem;
+    padding-top: 0;
+    justify-content: flex-start;
+  }
+  .prava {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+  .footerTitle {
+    font-size: 3.3rem;
+  }
+  .footerIcons {
+    width: 15.5rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .comtitle {
+    font-size: 5.5rem;
+  }
+  .comment {
+    flex-direction: column;
+    height: auto;
+    width: 95%;
+  }
+  .slikaCom img {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+  }
+  .comName {
+    position: absolute;
+    top: -66px;
+    left: 55px;
+  }
+  .comDate {
+    position: absolute;
+    top: -60px;
+  }
+  .comText {
+    gap: 0;
+    height: auto;
+  }
+  .showMoreCom {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+  }
+  .comContent {
+    font-size: 1.85rem;
+    line-height: 2.6rem;
+  }
 }
