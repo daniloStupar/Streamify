@@ -211,10 +211,21 @@
     width: 86%;
     height: 87%;
   }
-  .streamer {
-    flex-direction: row;
-  }
   .noComment {
     text-align: center;
   }
 }
+@media (max-width: 510px) {
+    .streamer {
+    flex-direction: row;
+    width: auto;
+  }
+  .status{
+    left: 8.5rem;
+    top: 12.2rem;
+  } 
+  .streamer{
+    border-top: #10B0E7 solid 2px;
+    padding: 0;
+  }
+ }
