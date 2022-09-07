@@ -13,11 +13,11 @@
   }
   .streamersBox {
     width: 90%;
-    height: 90%;
+    height: 96%;
   }
   .streamersList {
     width: 90%;
-    height: 90%;
+    height: 84%;
   }
   .form {
     max-width: 50rem;
@@ -35,6 +35,13 @@
   .footerDole {
     margin-left: 3.6rem;
     margin-right: 3.6rem;
+  }
+  .benefit{
+    transform: scale(0.9);
+    
+  }
+  .benefits{
+    gap:10rem;
   }
 }
 
@@ -67,7 +74,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 600px) {
   html {
     font-size: 47.5%;
   }
@@ -207,24 +214,48 @@
   }
   .streamersList {
     background: #072d49;
-    width: 86%;
-    height: 87%;
+    width: 83%;
+    height: 82%;
   }
   .noComment {
     text-align: center;
   }
+  .modal{
+    width: 80%;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .input-fields-cou{
+    width: 80%;
+  }
 }
-@media (max-width: 510px) {
+@media (max-width: 494px) {
   .streamer {
     flex-direction: row;
-    width: auto;
+    width: 94%;
   }
   .status {
-    left: 8.5rem;
-    top: 12.2rem;
+    left: 5.45rem;
+    top: 7.25rem;
   }
   .streamer {
     border-top: #10b0e7 solid 2px;
     padding: 0;
+    
+    height: 11.6rem;
+
+  }
+  .streamerName, .streamerEmail, .streamerAction{
+    text-align: start;
+    margin-left:2rem;
+    padding: 0.4rem;
+  }
+  .streamerEmail{
+    font-size: 1.9rem !important;
+  }
+  .streamerAction{
+    font-size: 1.9rem !important;
   }
 }
