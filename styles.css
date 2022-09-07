@@ -393,7 +393,7 @@ button {
 
 .modal {
   width: 93.6rem;
-  max-height: 73.4rem;
+  height: 76.4rem;
   border-radius: 0.4rem;
   background-color: #f9f9f9;
   position: fixed;
@@ -401,11 +401,93 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+  padding-top: 5.6rem;
 }
 
-.gift {
-  padding-top: 5.6rem;
-  margin-bottom: 4rem;
+.couponSucces {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: #f9f9f9;
+  border-radius: 0.4rem;
+  width: 60rem;
+  height: 73.4rem;
+  display: none;
+}
+.succes {
+  margin-top: 18.6rem;
+  width: 15.4rem;
+  height: 15.4rem;
+  margin-bottom: 4.8rem;
+}
+.couponSent {
+  color: #072d49;
+  font-weight: 600;
+  font-size: 3.6rem;
+  margin-bottom: 1.6rem;
+}
+.checkInbox {
+  color: #657785;
+  font-size: 2.2rem;
+  margin-bottom: 6.4rem;
+}
+.contBrowsing {
+  width: 31rem;
+  height: 6rem;
+  background: #e76a10;
+  box-shadow: 0px 4px 8px rgba(101, 119, 133, 0.24);
+  border-radius: 0.4rem;
+  border: none;
+  color: #f9f9f9;
+  font-weight: 600;
+  font-size: 2.4rem;
+}
+.dodatnih50 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: #f9f9f9;
+  border-radius: 0.8rem;
+  width: 100rem;
+  height: 80rem;
+  display: none;
+}
+.welcome {
+  color: #072d49;
+  font-weight: 600;
+  font-size: 5rem;
+  margin-top: 11rem;
+  margin-bottom: 3rem;
+}
+.frame {
+  width: 40rem;
+  height: 34rem;
+  margin-bottom: 4.8rem;
+}
+.thankYou {
+  color: #10b0e7;
+  font-weight: 600;
+  font-size: 3.4rem;
+  line-height: 4.1rem;
+}
+.thankYou {
+  font-weight: 600;
+  font-size: 3.4rem;
+  margin-bottom: 1.6rem;
+}
+.givingJos {
+  color: #657785;
+  font-size: 2.2rem;
+  text-align: center;
+}
+.jos50off {
+  display: inline-block;
+  color: #e76a10;
+  font-weight: 600;
 }
 .x {
   position: absolute;
@@ -677,7 +759,7 @@ input::-webkit-inner-spin-button {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 6.4rem;
+  gap: 1rem;
 }
 
 .total {

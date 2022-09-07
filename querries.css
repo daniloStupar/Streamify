@@ -63,6 +63,7 @@
   .benefits {
     flex-direction: column;
     height: 120rem;
+    background-color: #051535;
   }
 }
 
@@ -117,9 +118,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .benefits {
-    background-color: #051535;
-  }
+
   .footerGore {
     flex-direction: column;
     text-align: center;
@@ -216,16 +215,16 @@
   }
 }
 @media (max-width: 510px) {
-    .streamer {
+  .streamer {
     flex-direction: row;
     width: auto;
   }
-  .status{
+  .status {
     left: 8.5rem;
     top: 12.2rem;
-  } 
-  .streamer{
-    border-top: #10B0E7 solid 2px;
+  }
+  .streamer {
+    border-top: #10b0e7 solid 2px;
     padding: 0;
   }
- }
+}

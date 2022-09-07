@@ -974,6 +974,7 @@ let errors = {
   expDate: [],
   coupon: [],
 };
+
 inputs.forEach((element) => {
   element.addEventListener("change", (e) => {
     let currentInput = e.target;
@@ -981,7 +982,6 @@ inputs.forEach((element) => {
     let inputName = currentInput.getAttribute("name");
     if (inputValeu.length >= 0) {
       errors[inputName] = [];
-      console.log("asdasdasda", { inputValeu });
       switch (inputName) {
         case "name":
           let validation = inputValeu.trim();
@@ -1012,6 +1012,8 @@ inputs.forEach((element) => {
         case "emailCoupon":
           if (!validateEmail(inputValeu)) {
             errors[inputName].push("Please enter a valid email!");
+          } else {
+            console.log("email", { inputValeu });
           }
           break;
 
@@ -1101,6 +1103,58 @@ const validateExpDate = (expDate) => {
   return false;
 };
 
+/////////////////////////////// COUPON ///////////////////////////
+const cuponSucces = document.querySelector(".couponSucces");
+const getDiscountBtn = document.querySelector(".cuponBtn");
+const email = document.querySelector("#emailCoupon");
+const countinue = document.querySelector(".contBrowsing");
+const zatvori = document.querySelector("#conuntinueee");
+
+const nastavi = function () {
+  cuponSucces.style.display = "none";
+  overlay.style.display = "none";
+};
+
+countinue.addEventListener("click", nastavi);
+zatvori.addEventListener("click", nastavi);
+
+getDiscountBtn.addEventListener("click", function () {
+  if (errors.emailCoupon.length != 0) {
+    return;
+  } else {
+    localStorage.setItem("email", email.value);
+    cuponSucces.style.display = "flex";
+    overlay.style.display = "block";
+    modal.style.display = "none";
+    console.log(localStorage);
+  }
+});
+
+const couponCreate = async function () {
+  const dataRaw = {
+    email: localStorage.email,
+    couponType: 1,
+    couponSubtype: 1,
+    value: 50,
+  };
+  const res = await fetch("https://ossam.info/darkog/public/api/v1/create", {
+    method: "POST", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(dataRaw),
+  });
+  data = await res.json();
+  console.log(data);
+};
+couponCreate();
+function closeCoupon() {
+  if (localStorage.email) {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+  }
+}
+closeCoupon();
 ///////////////////////// WIDGET ///////////////////////////
 
 const closeWidget = document.querySelector(".widgX");
