@@ -35,6 +35,11 @@
     margin-left: 3.6rem;
     margin-right: 3.6rem;
   }
+  .widgTop{
+    bottom: 1.9rem;
+    right: 2.6rem;
+
+  }
   .footerDole {
     margin-left: 3.6rem;
     margin-right: 3.6rem;
@@ -74,9 +79,10 @@
     height: 120rem;
     background-color: #051535;
   }
+  
 }
 
-@media (max-width: 600px) {
+@media (max-width: 738px) {
   html {
     font-size: 47.5%;
   }
@@ -114,6 +120,8 @@
   .toggle {
     gap: 0.7rem;
     font-size: 2.1rem;
+    margin-left: -9rem;
+    margin-top: 0;
   }
   .paymentBtn {
     width: 100%;
@@ -132,10 +140,20 @@
 
   .podnaslov {
     padding: 4rem;
+    margin-top:0;
   }
   .checkbox input {
     width: 3rem;
     height: 3rem;
+  }
+  .dis{
+    width: 7.4rem;
+    height: 4.3rem;
+    text-align: center;
+  }
+
+  .pos50{
+    margin-top:-30%;
   }
 
   .pricing {

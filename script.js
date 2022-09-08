@@ -1029,11 +1029,11 @@ inputs.forEach((element) => {
           }
           break;
 
-        case "expDate":
-          if (!validateCVC(inputValeu)) {
-            errors[inputName].push("Please enter a valid date!");
-          }
-          break;
+        // case "expDate":
+        //   if (!validateCVC(inputValeu)) {
+        //     errors[inputName].push("Please enter a valid date!");
+        //   }
+        //   break;
 
           p;
       }
@@ -1076,7 +1076,7 @@ const validateEmail = (email) => {
 };
 const validateCardNum = (cardNumber) => {
   if (
-    /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/.test(
+    /^((\d{4})[''\s-]?){4}$/.test(
       cardNumber
     )
   ) {
@@ -1092,12 +1092,12 @@ const validateCVC = (cvc) => {
   return false;
 };
 
-const validateExpDate = (expDate) => {
-  if (/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/.test(expDate)) {
-    return true;
-  }
-  return false;
-};
+// const validateExpDate = (expDate) => {
+//   if (/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/.test(expDate)) {
+//     return true;
+//   }
+//   return false;
+// };
 
 /////////////////////////////// COUPON ///////////////////////////
 const cuponSucces = document.querySelector(".couponSucces");
@@ -2197,6 +2197,7 @@ const couplePaket = "COUPLE";
 const individualPaket = "INDIVIDUAL";
 const proceed = document.querySelector(".paymentBtn");
 const noviKupon = document.querySelector(".dodatnih50");
+const close50=document.querySelector(".x50")
 
 proceed.addEventListener("click", function (e) {
   e.preventDefault();
@@ -2219,6 +2220,11 @@ proceed.addEventListener("click", function (e) {
   overlay.style.display = "block";
   couponCreate();
 });
+
+close50.addEventListener("click", function(){
+  noviKupon.style.display = "none";
+  overlay.style.display = "none";
+})
 
 Individual.forEach((el) =>
   el.addEventListener("click", function () {
