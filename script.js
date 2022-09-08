@@ -2208,14 +2208,16 @@ proceed.addEventListener("click", function (e) {
   if (errors.cardNumber > 0) return;
   if (errors.cvc.length > 0) return;
   if (errors.expDate.length > 0) return;
-  inputs.forEach((input) => {
-    console.log(input.value);
-    if (!input.value) return;
-  });
+
+  for (const input of inputs) {
+    if (input.getAttribute("id") == "emailCoupon") continue;
+    if (input.getAttribute("id") == "coupon") continue;
+    if (input.value == "") return;
+  }
 
   noviKupon.style.display = "flex";
-  // overlay.style.display = "block";
-  // couponCreate();
+  overlay.style.display = "block";
+  couponCreate();
 });
 
 Individual.forEach((el) =>
