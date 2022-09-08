@@ -733,6 +733,21 @@ button {
   background-color: #f9f9f9;
 }
 
+.relative {
+  position: relative;
+}
+
+.apply {
+  position: absolute;
+  top: 6.4rem;
+  right: 2.3rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  border: none;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -1148,7 +1163,8 @@ footer {
   transform: scale(1.5);
 }
 
-
-.streamerName, .streamerEmail, .streamerAction{
+.streamerName,
+.streamerEmail,
+.streamerAction {
   text-align: center;
 }

@@ -1035,11 +1035,7 @@ inputs.forEach((element) => {
           }
           break;
 
-        case "coupon":
-          if (!validateCoupon(inputValeu)) {
-            errors[inputName].push("Please enter a valid date!");
-          }
-          break;
+          p;
       }
     } else {
       errors[inputName] = [];
@@ -1109,6 +1105,8 @@ const getDiscountBtn = document.querySelector(".cuponBtn");
 const email = document.querySelector("#emailCoupon");
 const countinue = document.querySelector(".contBrowsing");
 const zatvori = document.querySelector("#conuntinueee");
+const couponCode = document.querySelector("#coupon");
+const apply = document.querySelector(".apply");
 
 const nastavi = function () {
   cuponSucces.style.display = "none";
@@ -1119,7 +1117,7 @@ countinue.addEventListener("click", nastavi);
 zatvori.addEventListener("click", nastavi);
 
 getDiscountBtn.addEventListener("click", function () {
-  if (errors.emailCoupon.length != 0) {
+  if (errors.emailCoupon.length != 0 || email.value == "") {
     return;
   } else {
     localStorage.setItem("email", email.value);
@@ -1127,6 +1125,7 @@ getDiscountBtn.addEventListener("click", function () {
     overlay.style.display = "block";
     modal.style.display = "none";
     console.log(localStorage);
+    couponCreate();
   }
 });
 
@@ -1147,7 +1146,7 @@ const couponCreate = async function () {
   data = await res.json();
   console.log(data);
 };
-couponCreate();
+
 function closeCoupon() {
   if (localStorage.email) {
     modal.style.display = "none";
@@ -1155,6 +1154,28 @@ function closeCoupon() {
   }
 }
 closeCoupon();
+
+let couponStatus = false;
+
+const useCoupon = async function () {
+  const dataRaw = {
+    email: localStorage.email,
+    code: couponCode.value,
+  };
+  const res = await fetch("https://ossam.info/darkog/public/api/v1/use", {
+    method: "POST", // or 'PUT'
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(dataRaw),
+  });
+  data = await res.json();
+  couponStatus = data.status;
+  console.log(couponStatus);
+};
+
+apply.addEventListener("click", useCoupon);
+
 ///////////////////////// WIDGET ///////////////////////////
 
 const closeWidget = document.querySelector(".widgX");
