@@ -6,6 +6,7 @@
     gap: 7rem;
     margin-left: 2rem;
     margin-right: 2rem;
+    /* font-size: 62.5%; */
   }
 
   .footerInfo {
@@ -15,6 +16,7 @@
     width: 90%;
     height: 96%;
   }
+
   .streamersList {
     width: 90%;
     height: 84%;
@@ -24,6 +26,7 @@
   }
   .modal {
     width: 80%;
+    /* height: 90%; */
   }
   .cardholderContainer {
     max-width: 44rem;
@@ -36,12 +39,11 @@
     margin-left: 3.6rem;
     margin-right: 3.6rem;
   }
-  .benefit{
+  .benefit {
     transform: scale(0.9);
-    
   }
-  .benefits{
-    gap:10rem;
+  .benefits {
+    gap: 10rem;
   }
 }
 
@@ -88,6 +90,54 @@
   .midHeight {
     margin-top: 2rem;
   }
+
+  .cardholderContainer {
+    max-width: none;
+    width: 100%;
+  }
+  .form {
+    max-width: none;
+    height: 81rem;
+    width: 100%;
+  }
+  .naslovKartica {
+    margin-top: 11.6rem;
+  }
+
+  .cart1 {
+    width: 33rem;
+    height: 72rem;
+  }
+  /* .month {
+    font-size: ;
+  } */
+  .toggle {
+    gap: 0.7rem;
+    font-size: 2.1rem;
+  }
+  .paymentBtn {
+    width: 100%;
+    margin-top: 3.2rem;
+  }
+
+  .gift {
+    width: 37rem;
+    height: 26rem;
+    /* margin-bottom: 6rem; */
+  }
+
+  .checkbox {
+    font-size: 2rem;
+  }
+
+  .podnaslov {
+    padding: 4rem;
+  }
+  .checkbox input {
+    width: 3rem;
+    height: 3rem;
+  }
+
   .pricing {
     height: auto;
     padding-bottom: 10rem;
@@ -96,6 +146,8 @@
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+    padding-top: 8rem;
+    max-width: 100%;
   }
   .header {
     background: linear-gradient(
@@ -124,6 +176,14 @@
   .headerBtn {
     margin-left: auto;
     margin-right: auto;
+  }
+  .forms {
+    position: relative;
+  }
+  .paymentBtn {
+    position: absolute;
+    bottom: 0;
+    /* margin-bottom: 8.8rem; */
   }
 
   .footerGore {
@@ -220,15 +280,22 @@
   .noComment {
     text-align: center;
   }
-  .modal{
+  .enterMail {
+    padding: 2rem;
+  }
+  .cuponText {
+    padding: 2rem;
+  }
+  .modal {
     width: 80%;
-    height: 80%;
+    height: 90%;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
-  .input-fields-cou{
-    width: 80%;
+  .input-fields-cou {
+    width: auto;
+    max-width: auto;
   }
 }
 @media (max-width: 494px) {
@@ -243,19 +310,20 @@
   .streamer {
     border-top: #10b0e7 solid 2px;
     padding: 0;
-    
-    height: 11.6rem;
 
+    height: 11.6rem;
   }
-  .streamerName, .streamerEmail, .streamerAction{
+  .streamerName,
+  .streamerEmail,
+  .streamerAction {
     text-align: start;
-    margin-left:2rem;
+    margin-left: 2rem;
     padding: 0.4rem;
   }
-  .streamerEmail{
+  .streamerEmail {
     font-size: 1.9rem !important;
   }
-  .streamerAction{
+  .streamerAction {
     font-size: 1.9rem !important;
   }
 }

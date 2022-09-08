@@ -1169,8 +1169,17 @@ const useCoupon = async function () {
     },
     body: JSON.stringify(dataRaw),
   });
+
   data = await res.json();
   couponStatus = data.status;
+  if (couponStatus) {
+    discountIndividual = (
+      Number(discountIndividual) +
+      0.5 * individual
+    ).toFixed(2);
+    discountFamily = (Number(discountFamily) + 0.5 * family).toFixed(2);
+    discountCouple = (Number(discountCouple) + 0.5 * couple).toFixed(2);
+  }
   console.log(couponStatus);
 };
 
@@ -2116,6 +2125,14 @@ prekidacOff.addEventListener("click", function () {
   discountIndividual = (indYearReg - individualYear).toFixed(2);
   discountFamily = (famYearReg - famYear).toFixed(2);
   discountCouple = (coupleYearReg - coupleYear).toFixed(2);
+  if (couponStatus) {
+    discountIndividual = (
+      Number(discountIndividual) +
+      0.5 * individual
+    ).toFixed(2);
+    discountFamily = (Number(discountFamily) + 0.5 * family).toFixed(2);
+    discountCouple = (Number(discountCouple) + 0.5 * couple).toFixed(2);
+  }
 
   totalIndividual = individualYear;
   totalFamily = famYear;
@@ -2147,6 +2164,14 @@ prekidacOn.addEventListener("click", function () {
   discountIndividual = 0.0;
   discountFamily = 0.0;
   discountCouple = 0.0;
+  if (couponStatus) {
+    discountIndividual = (
+      Number(discountIndividual) +
+      0.5 * individual
+    ).toFixed(2);
+    discountFamily = (Number(discountFamily) + 0.5 * family).toFixed(2);
+    discountCouple = (Number(discountCouple) + 0.5 * couple).toFixed(2);
+  }
 
   indPrice.forEach((el) => (el.innerHTML = `${individual}€`));
   famPrice.forEach((el) => (el.innerHTML = `${family}€`));
@@ -2170,6 +2195,28 @@ const totalPrice = document.querySelector(".totalPrice");
 const familyPaket = "FAMILY";
 const couplePaket = "COUPLE";
 const individualPaket = "INDIVIDUAL";
+const proceed = document.querySelector(".paymentBtn");
+const noviKupon = document.querySelector(".dodatnih50");
+
+proceed.addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log(errors.name.length);
+  if (errors.name.length > 0) return;
+  if (errors.address.length > 0) return;
+  if (errors.cardNumber.length > 0) return;
+  if (errors.email.length > 0) return;
+  if (errors.cardNumber > 0) return;
+  if (errors.cvc.length > 0) return;
+  if (errors.expDate.length > 0) return;
+  inputs.forEach((input) => {
+    console.log(input.value);
+    if (!input.value) return;
+  });
+
+  noviKupon.style.display = "flex";
+  // overlay.style.display = "block";
+  // couponCreate();
+});
 
 Individual.forEach((el) =>
   el.addEventListener("click", function () {
@@ -2178,7 +2225,9 @@ Individual.forEach((el) =>
     discount.innerHTML = `${discountIndividual}€`;
     paketCijena.innerHTML = `${individual}€`;
     subtotal.innerHTML = `${individual}€`;
-    totalPrice.innerHTML = `${totalIndividual}€`;
+    totalPrice.innerHTML = `${(
+      Number(individual) - Number(discountIndividual)
+    ).toFixed(2)}€`;
   })
 );
 
@@ -2186,10 +2235,13 @@ Couple.forEach((el) =>
   el.addEventListener("click", function () {
     paketTip.innerHTML = couplePaket;
     paketVrijeme.innerHTML = packetTime;
+
     discount.innerHTML = `${discountCouple}€`;
     paketCijena.innerHTML = `${couple}€`;
     subtotal.innerHTML = `${couple}€`;
-    totalPrice.innerHTML = `${totalCouple}€`;
+    totalPrice.innerHTML = `${(Number(couple) - Number(discountCouple)).toFixed(
+      2
+    )}€`;
   })
 );
 
@@ -2200,7 +2252,9 @@ Family.forEach((el) =>
     discount.innerHTML = `${discountFamily}€`;
     paketCijena.innerHTML = `${family}€`;
     subtotal.innerHTML = `${family}€`;
-    totalPrice.innerHTML = `${totalFamily}€`;
+    totalPrice.innerHTML = `${(Number(family) - Number(discountFamily)).toFixed(
+      2
+    )}€`;
   })
 );
 
