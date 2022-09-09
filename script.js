@@ -1029,13 +1029,11 @@ inputs.forEach((element) => {
           }
           break;
 
-          // case "expDate":
-          //   if (!validateCVC(inputValeu)) {
-          //     errors[inputName].push("Please enter a valid date!");
-          //   }
-          //   break;
-
-          p;
+        case "expDate":
+          if (!validateExpDate(inputValeu)) {
+            errors[inputName].push("Please enter a valid date!");
+          }
+          break;
       }
     } else {
       errors[inputName] = [];
@@ -1088,12 +1086,12 @@ const validateCVC = (cvc) => {
   return false;
 };
 
-// const validateExpDate = (expDate) => {
-//   if (/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/.test(expDate)) {
-//     return true;
-//   }
-//   return false;
-// };
+const validateExpDate = (expDate) => {
+  if (/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/.test(expDate)) {
+    return true;
+  }
+  return false;
+};
 
 /////////////////////////////// COUPON ///////////////////////////
 const cuponSucces = document.querySelector(".couponSucces");
@@ -2211,6 +2209,7 @@ proceed.addEventListener("click", function (e) {
   if (errors.expDate.length > 0) return;
 
   for (const input of inputs) {
+    if (input.getAttribute("class") == "search") continue;
     if (input.getAttribute("id") == "emailCoupon") continue;
     if (input.getAttribute("id") == "coupon") continue;
     if (input.value == "") return;
