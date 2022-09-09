@@ -1029,11 +1029,11 @@ inputs.forEach((element) => {
           }
           break;
 
-        // case "expDate":
-        //   if (!validateCVC(inputValeu)) {
-        //     errors[inputName].push("Please enter a valid date!");
-        //   }
-        //   break;
+          // case "expDate":
+          //   if (!validateCVC(inputValeu)) {
+          //     errors[inputName].push("Please enter a valid date!");
+          //   }
+          //   break;
 
           p;
       }
@@ -1075,11 +1075,7 @@ const validateEmail = (email) => {
   return false;
 };
 const validateCardNum = (cardNumber) => {
-  if (
-    /^((\d{4})[''\s-]?){4}$/.test(
-      cardNumber
-    )
-  ) {
+  if (/^((\d{4})[''\s-]?){4}$/.test(cardNumber)) {
     return true;
   }
   return false;
@@ -1191,10 +1187,12 @@ const closeWidget = document.querySelector(".widgX");
 const streamersBox = document.querySelector(".streamersBox");
 const streamersList = document.querySelector("#streamersList");
 const openStreamerBox = document.querySelector(".widget");
+const streamersPage = document.querySelector("#streamersList2");
 
 openStreamerBox.addEventListener("click", function () {
   streamersBox.style.display = "block";
   overlay.style.display = "block";
+  showWidgStreamers();
 });
 
 closeWidget.addEventListener("click", function () {
@@ -1205,26 +1203,8 @@ closeWidget.addEventListener("click", function () {
 let streamers;
 let data2;
 
-const showStreamers = function (data2) {
-  const filterStreamers = data2.filter(
-    (streamer) =>
-      streamer.activity == "online" || streamer.activity == "streaming"
-  );
-
-  const sortedStreamers = filterStreamers.sort(function (a, b) {
-    let x = a.activity;
-    let y = b.activity;
-    if (x < y) {
-      return -1;
-    }
-    if (x > y) {
-      return 1;
-    }
-    return 0;
-  });
-  console.log(sortedStreamers);
-
-  sortedStreamers.forEach(function (streamer, i) {
+const showStreamers = function (data2, list) {
+  data2.forEach(function (streamer, i) {
     const streamerHtml = `
     <div class="streamer">
     <div class="status"></div>
@@ -1237,7 +1217,7 @@ const showStreamers = function (data2) {
   </div>
     `;
 
-    streamersList.insertAdjacentHTML("beforeend", streamerHtml);
+    list.insertAdjacentHTML("beforeend", streamerHtml);
 
     const activityBorder = document.querySelectorAll(".streamerImg");
     const activityCircle = document.querySelectorAll(".status");
@@ -1255,6 +1235,26 @@ const showStreamers = function (data2) {
       activityCircle[i].style.backgroundColor = "#E76A10";
     }
   });
+};
+
+const showWidgStreamers = function () {
+  const filterStreamers = data2.filter(
+    (streamer) =>
+      streamer.activity == "online" || streamer.activity == "streaming"
+  );
+
+  const sortedStreamers = filterStreamers.sort(function (a, b) {
+    let x = a.activity;
+    let y = b.activity;
+    if (x < y) {
+      return -1;
+    }
+    if (x > y) {
+      return 1;
+    }
+    return 0;
+  });
+  showStreamers(sortedStreamers, streamersList);
 };
 
 const fetchStreamers = async function () {
@@ -2062,7 +2062,7 @@ const fetchStreamers = async function () {
       statusMessage: "reading book",
     },
   ];
-  showStreamers(data2);
+  showStreamers(data2, streamersPage);
 };
 fetchStreamers();
 
@@ -2197,7 +2197,7 @@ const couplePaket = "COUPLE";
 const individualPaket = "INDIVIDUAL";
 const proceed = document.querySelector(".paymentBtn");
 const noviKupon = document.querySelector(".dodatnih50");
-const close50=document.querySelector(".x50")
+const close50 = document.querySelector(".x50");
 
 proceed.addEventListener("click", function (e) {
   e.preventDefault();
@@ -2221,10 +2221,10 @@ proceed.addEventListener("click", function (e) {
   couponCreate();
 });
 
-close50.addEventListener("click", function(){
+close50.addEventListener("click", function () {
   noviKupon.style.display = "none";
   overlay.style.display = "none";
-})
+});
 
 Individual.forEach((el) =>
   el.addEventListener("click", function () {
