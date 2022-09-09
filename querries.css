@@ -124,14 +124,15 @@
   .naslovKartica {
     margin-top: 11.6rem;
   }
-
+  .streamersNaslov {
+    font-size: 4.5rem;
+    margin-top: 10rem;
+    margin-bottom: 10.5rem;
+  }
   .cart1 {
     width: 33rem;
     height: 72rem;
   }
-  /* .month {
-    font-size: ;
-  } */
   .toggle {
     gap: 0.7rem;
     font-size: 2.1rem;
@@ -331,7 +332,7 @@
     max-width: auto;
   }
 }
-@media (max-width: 494px) {
+@media (max-width: 438px) {
   .streamer {
     flex-direction: row;
     width: 94%;
@@ -345,6 +346,12 @@
     padding: 0;
 
     height: 11.6rem;
+  }
+
+  .streamersNaslov {
+    font-size: 4.5rem;
+    margin-top: 8rem;
+    margin-bottom: 8.5rem;
   }
   .streamerName,
   .streamerEmail,
@@ -400,5 +407,11 @@
   }
   .streamerAction {
     font-size: 1.9rem !important;
+  }
+}
+@media (max-width: 1200px) {
+  .streamersBox2,
+  #streamersList2 {
+    width: 98%;
   }
 }
