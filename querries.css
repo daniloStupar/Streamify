@@ -17,6 +17,11 @@
     height: 96%;
   }
 
+  .block {
+    padding: 10rem;
+    height: 63.2rem;
+  }
+
   .streamersList {
     width: 90%;
     height: 84%;
@@ -35,10 +40,9 @@
     margin-left: 3.6rem;
     margin-right: 3.6rem;
   }
-  .widgTop{
+  .widgTop {
     bottom: 1.9rem;
     right: 2.6rem;
-
   }
   .footerDole {
     margin-left: 3.6rem;
@@ -59,6 +63,9 @@
   .benefits {
     gap: 0rem;
   }
+  .block {
+    padding: 5rem;
+  }
 }
 
 @media (max-width: 820px) {
@@ -71,6 +78,15 @@
   .comContent {
     font-size: 1.6rem;
   }
+
+  .block {
+    height: 60rem;
+  }
+
+  .blockContent {
+    width: 256px;
+  }
+
   .header {
     background-position: -14rem 0;
   }
@@ -79,7 +95,6 @@
     height: 120rem;
     background-color: #051535;
   }
-  
 }
 
 @media (max-width: 738px) {
@@ -140,20 +155,20 @@
 
   .podnaslov {
     padding: 4rem;
-    margin-top:0;
+    margin-top: 0;
   }
   .checkbox input {
     width: 3rem;
     height: 3rem;
   }
-  .dis{
+  .dis {
     width: 7.4rem;
     height: 4.3rem;
     text-align: center;
   }
 
-  .pos50{
-    margin-top:-30%;
+  .pos50 {
+    margin-top: -30%;
   }
 
   .pricing {
@@ -338,6 +353,48 @@
     margin-left: 2rem;
     padding: 0.4rem;
   }
+
+  .block {
+    height: 42.8rem;
+    padding: 1.6rem;
+  }
+
+  .block1 {
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.88) 40%,
+        rgba(255, 255, 255, 0) 82%
+      ),
+      url("block1.png");
+    background-size: 69rem 44rem;
+  }
+
+  .block2 {
+    background-image: linear-gradient(
+        270deg,
+        rgba(255, 255, 255, 0.88) 30%,
+        rgba(255, 255, 255, 0) 60%
+      ),
+      url("block2\ .png");
+    background-size: 70rem 44rem;
+    background-position: 70% 25%;
+  }
+
+  .block3 {
+    background-image: linear-gradient(
+        270deg,
+        rgba(255, 255, 255, 0) 35%,
+        rgba(255, 255, 255, 0.88) 61%
+      ),
+      url("block3.png");
+    background-size: 84rem 43rem;
+    background-position: 50% 50%;
+  }
+
+  .blockText {
+    color: #27597d;
+  }
+
   .streamerEmail {
     font-size: 1.9rem !important;
   }
