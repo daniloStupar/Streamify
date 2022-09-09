@@ -933,7 +933,7 @@ ul li {
   height: 2.5rem;
 }
 
-.streamersList {
+#streamersList {
   width: 90.4rem;
   height: 70rem;
   overflow-y: scroll;

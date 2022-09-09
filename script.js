@@ -1189,7 +1189,7 @@ apply.addEventListener("click", useCoupon);
 
 const closeWidget = document.querySelector(".widgX");
 const streamersBox = document.querySelector(".streamersBox");
-const streamersList = document.querySelector(".streamersList");
+const streamersList = document.querySelector("#streamersList");
 const openStreamerBox = document.querySelector(".widget");
 
 openStreamerBox.addEventListener("click", function () {

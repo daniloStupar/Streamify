@@ -22,7 +22,7 @@
     height: 63.2rem;
   }
 
-  .streamersList {
+  #streamersList {
     width: 90%;
     height: 84%;
   }
@@ -305,7 +305,7 @@
     font-size: 3.7rem;
     margin-top: 2rem;
   }
-  .streamersList {
+  #streamersList {
     background: #072d49;
     width: 83%;
     height: 82%;
